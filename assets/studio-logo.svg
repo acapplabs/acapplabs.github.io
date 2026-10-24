@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="acMainGrad" x1="136" y1="778" x2="888" y2="246" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#4F5BEA" />
+      <stop offset="54%" stop-color="#9B45E0" />
+      <stop offset="100%" stop-color="#FF3D7F" />
+    </linearGradient>
+    <linearGradient id="cInnerBevelGrad" x1="420" y1="720" x2="840" y2="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3B43B8" stop-opacity="0.38" />
+      <stop offset="55%" stop-color="#7B2CBF" stop-opacity="0.28" />
+      <stop offset="100%" stop-color="#D81B60" stop-opacity="0.32" />
+    </linearGradient>
+    <linearGradient id="starBaseGrad" x1="589.9" y1="419.1" x2="774.7" y2="603.9" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFF085" />
+      <stop offset="45%" stop-color="#FFC71F" />
+      <stop offset="100%" stop-color="#E68A00" />
+    </linearGradient>
+  </defs>
+  <!-- Sculpted A Monogram -->
+  <path d="M 381.64 244.86 L 545.58 244.86 A 299.64 299.64 0 0 0 427.97 353.04 L 344.83 561.66 L 386.87 561.66 A 299.64 299.64 0 0 0 428.76 671.22 L 301.17 671.22 L 265.96 759.56 Q 258.56 778.14 238.56 778.14 L 137.12 778.14 L 337.79 274.59 Q 349.64 244.86 381.64 244.86 Z" fill="url(#acMainGrad)" />
+  <!-- Sculpted C Monogram with Dimensional Inner Bevel -->
+  <path d="M 890.95 345.51 A 266.64 266.64 0 1 0 890.95 677.49 L 801.08 606.00 A 151.80 151.80 0 1 1 801.08 417.00 Z" fill="url(#acMainGrad)" />
+  <path d="M 846.02 381.26 A 209.22 209.22 0 1 0 846.02 641.74 L 801.08 606.00 A 151.80 151.80 0 1 1 801.08 417.00 Z" fill="url(#cInnerBevelGrad)" />
+  <!-- Faceted Wayfile Golden Star -->
+  <path d="M 682.28 419.10 L 704.21 489.57 L 774.68 511.50 L 704.21 533.43 L 682.28 603.90 L 660.35 533.43 L 589.88 511.50 L 660.35 489.57 Z" fill="url(#starBaseGrad)" />
+  <path d="M 682.28 511.50 L 682.28 419.10 L 660.35 489.57 L 589.88 511.50 Z" fill="#FFF59D" fill-opacity="0.45" />
+  <path d="M 682.28 511.50 L 682.28 419.10 L 704.21 489.57 L 774.68 511.50 Z" fill="#FFD54F" fill-opacity="0.20" />
+  <path d="M 682.28 511.50 L 682.28 603.90 L 660.35 533.43 L 589.88 511.50 Z" fill="#F59E0B" fill-opacity="0.25" />
+  <path d="M 682.28 511.50 L 774.68 511.50 L 704.21 533.43 L 682.28 603.90 Z" fill="#D97706" fill-opacity="0.45" />
+</svg>

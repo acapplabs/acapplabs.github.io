@@ -32,7 +32,9 @@ img { max-width: 100%; height: auto; display: block; }
 .topbar { position: fixed; inset: 0 0 auto; z-index: 50; color: #fff; transition: background .25s, box-shadow .25s; }
 .topbar.scrolled { background: rgba(79, 91, 234, .92); backdrop-filter: blur(10px); box-shadow: 0 6px 24px rgba(40, 30, 120, .2); }
 .nav { max-width: 1140px; margin: 0 auto; padding: 18px 16px; display: flex; align-items: center; justify-content: space-between; }
-.brand { font-size: 1.6rem; font-weight: 800; letter-spacing: -.5px; }
+.brand { display: inline-flex; align-items: center; font-size: 1.6rem; font-weight: 800; letter-spacing: -.5px; }
+.brand-mark { width: 42px; height: 42px; margin-right: 8px; }
+.brand-dark .brand-mark { width: 36px; height: 36px; }
 .brand span { color: var(--accent); }
 .menu { display: flex; align-items: center; gap: 30px; font-weight: 600; }
 .menu a:not(.btn) { opacity: .9; }
@@ -44,7 +46,7 @@ img { max-width: 100%; height: auto; display: block; }
 .hero { position: relative; color: #fff; background: linear-gradient(135deg, var(--brand-a) 0%, #7a4fe6 55%, var(--brand-b) 100%); padding: 130px 16px 170px; overflow: hidden; }
 .hero-inner { max-width: 1140px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 40px; }
 .hero-text { position: relative; isolation: isolate; }
-.ghost-mark { position: absolute; left: -30px; top: -90px; width: 340px; font-size: 22rem; font-weight: 800; line-height: 1; color: rgba(255, 255, 255, .07); pointer-events: none; user-select: none; z-index: -1; }
+.ghost-mark { position: absolute; left: -70px; top: -120px; width: 460px; pointer-events: none; user-select: none; z-index: -1; }
 .ghost-mark img { width: 100%; opacity: .08; }
 .eyebrow { text-transform: uppercase; letter-spacing: 2px; font-size: .8rem; font-weight: 700; opacity: .8; }
 h1 { font-size: clamp(2.5rem, 6vw, 4.4rem); line-height: 1.08; font-weight: 800; margin: 12px 0 20px; }
@@ -55,13 +57,14 @@ h1 { font-size: clamp(2.5rem, 6vw, 4.4rem); line-height: 1.08; font-weight: 800;
 .platforms svg { width: 20px; height: 20px; fill: #fff; --glyph-hole: #6a55e8; }
 
 /* Hero devices: a laptop with the phone leaning in front of it */
-.hero-devices { position: relative; z-index: 2; padding: 20px 0 60px; }
-.laptop { width: 100%; max-width: 560px; margin-left: auto; filter: drop-shadow(0 40px 60px rgba(20, 10, 80, .45)); }
+.hero-devices { position: relative; z-index: 2; padding: 20px 96px 60px 0; }
+.laptop { width: 100%; max-width: 520px; margin-left: auto; filter: drop-shadow(0 40px 60px rgba(20, 10, 80, .45)); }
 .laptop-screen { padding: 12px 12px 14px; border-radius: 18px 18px 0 0; background: #1c1a2e; box-shadow: inset 0 0 0 2px #2d2a45; }
 .laptop-screen img { border-radius: 6px; }
 .laptop-base { height: 16px; margin: 0 -7%; border-radius: 0 0 14px 14px; background: linear-gradient(#e9e8f2, #bdbbd0); position: relative; }
 .laptop-base::before { content: ""; position: absolute; left: 50%; top: 0; width: 18%; height: 6px; transform: translateX(-50%); border-radius: 0 0 8px 8px; background: #a9a7bd; }
-.phone { position: absolute; left: -10px; bottom: 0; width: 170px; padding: 7px; border-radius: 30px; background: #f4f4f8; box-shadow: 0 30px 60px rgba(20, 10, 80, .5), inset 0 0 0 2px #d9d9e3; transform: rotate(-8deg); }
+/* Upright, standing to the right of the laptop and only overlapping its bezel edge. */
+.phone { position: absolute; right: 0; bottom: 46px; width: 150px; padding: 6px; border-radius: 28px; background: #f4f4f8; box-shadow: 0 30px 60px rgba(20, 10, 80, .5), inset 0 0 0 2px #d9d9e3; }
 .phone img { border-radius: 24px; }
 .wave { position: absolute; left: 0; bottom: -1px; width: 100%; height: 120px; }
 .wave-back { fill: rgba(255, 255, 255, .25); }
@@ -130,10 +133,10 @@ h1 { font-size: clamp(2.5rem, 6vw, 4.4rem); line-height: 1.08; font-weight: 800;
   .hero-actions { justify-content: center; }
   .ghost-mark { left: 50%; transform: translateX(-50%); }
   .platforms { justify-content: center; }
-  .hero-devices { max-width: 520px; margin: 0 auto; width: 100%; padding-left: 40px; }
+  .hero-devices { max-width: 520px; margin: 0 auto; width: 100%; padding-right: 64px; }
   .laptop-base { margin: 0 -4%; }
-  .phone { width: 120px; left: 0; border-radius: 22px; padding: 5px; }
-  .phone img { border-radius: 18px; }
+  .phone { width: 100px; bottom: 50px; border-radius: 18px; padding: 4px; }
+  .phone img { border-radius: 14px; }
   .cards, .apps, .about { grid-template-columns: 1fr; }
 }
 @media (max-width: 760px) {
