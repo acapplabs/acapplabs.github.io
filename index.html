@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AC App Labs</title>
+<meta name="description" content="AC App Labs is an independent studio building simple, useful apps. Our first app, Wayfile, is coming soon to Google Play.">
+<link rel="icon" href="assets/wayfile.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<header class="hero">
+  <nav class="nav">
+    <a class="brand" href="/">AC App Labs<span>.</span></a>
+  </nav>
+  <div class="hero-body">
+    <p class="eyebrow">Independent app studio</p>
+    <h1>Simple apps,<br>made with care.</h1>
+    <p class="lead">Our website is on its way. In the meantime, here is what we are working on.</p>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,64 C240,120 480,0 720,40 C960,80 1200,110 1440,50 L1440,120 L0,120 Z"/>
+  </svg>
+</header>
+<main class="apps">
+  <h2>Our apps</h2>
+  <article class="card">
+    <img src="assets/wayfile.png" alt="Wayfile icon" width="96" height="96">
+    <div>
+      <h3>Wayfile</h3>
+      <p>A fast, friendly file manager for Android: browse, clean up, and move files to your PC or NAS.</p>
+      <span class="badge">Coming soon to Google Play</span>
+    </div>
+  </article>
+</main>
+<footer class="foot">© <span id="y">2026</span> AC App Labs</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
