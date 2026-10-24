@@ -5,38 +5,158 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AC App Labs</title>
 <meta name="description" content="AC App Labs is an independent studio building simple, useful apps. Our first app, Wayfile, is coming soon to Google Play.">
+<meta name="theme-color" content="#4f5bea">
 <link rel="icon" href="assets/wayfile.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
-<header class="hero">
+
+<header class="topbar" id="top">
   <nav class="nav">
-    <a class="brand" href="/">AC App Labs<span>.</span></a>
+    <a class="brand" href="#top">AC App Labs<span>.</span></a>
+    <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="menu" id="menu">
+      <li><a href="#top">Home</a></li>
+      <li><a href="#apps">Apps</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a class="btn btn-outline" href="#wayfile">Get Wayfile</a></li>
+    </ul>
   </nav>
-  <div class="hero-body">
-    <p class="eyebrow">Independent app studio</p>
-    <h1>Simple apps,<br>made with care.</h1>
-    <p class="lead">Our website is on its way. In the meantime, here is what we are working on.</p>
-  </div>
-  <svg class="wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M0,64 C240,120 480,0 720,40 C960,80 1200,110 1440,50 L1440,120 L0,120 Z"/>
-  </svg>
 </header>
-<main class="apps">
-  <h2>Our apps</h2>
-  <article class="card">
-    <img src="assets/wayfile.png" alt="Wayfile icon" width="96" height="96">
-    <div>
-      <h3>Wayfile</h3>
-      <p>A fast, friendly file manager for Android: browse, clean up, and move files to your PC or NAS.</p>
-      <span class="badge">Coming soon to Google Play</span>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <span class="ghost-letter" aria-hidden="true">A</span>
+      <p class="eyebrow">Independent app studio</p>
+      <h1>Simple apps,<br>made with care.</h1>
+      <p class="lead">We build clean, privacy-friendly tools that make everyday tasks on your phone a little easier.</p>
+      <div class="hero-actions">
+        <a class="btn btn-accent" href="#apps">Explore our apps</a>
+        <a class="btn btn-ghost" href="#about">About us</a>
+      </div>
     </div>
-  </article>
+    <div class="hero-phone">
+      <div class="phone">
+        <img src="assets/wayfile-home.jpg" alt="Wayfile home screen" width="540" height="1200">
+      </div>
+    </div>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true">
+    <path class="wave-back" d="M0,70 C260,10 520,120 820,70 C1080,28 1260,40 1440,80 L1440,140 L0,140 Z"/>
+    <path class="wave-front" d="M0,96 C240,140 500,40 760,74 C1020,108 1220,128 1440,84 L1440,140 L0,140 Z"/>
+  </svg>
+</section>
+
+<main>
+  <section class="section" id="why">
+    <h2 class="title">Why our apps</h2>
+    <div class="cards">
+      <article class="card">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.4-7 10-4-1.6-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+        <h3>Privacy first</h3>
+        <p>Your files stay on your device. No sign-up needed to get started.</p>
+      </article>
+      <article class="card">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>
+        <h3>Easy to use</h3>
+        <p>Clear screens and friendly wording, so anyone can get things done in a few taps.</p>
+      </article>
+      <article class="card">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>
+        <h3>Made for everyone</h3>
+        <p>Available in 7 languages, including right-to-left Arabic, from day one.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section section-tint" id="apps">
+    <h2 class="title">Our apps</h2>
+    <div class="apps">
+      <article class="app-card" id="wayfile">
+        <img class="app-icon" src="assets/wayfile.png" alt="" width="88" height="88">
+        <div class="app-body">
+          <h3>Wayfile</h3>
+          <p class="app-tag">File manager for Android</p>
+          <ul class="ticks">
+            <li>Browse, search and organize every file</li>
+            <li>Free up space with smart cleanup</li>
+            <li>Send files to your PC or NAS over Wi-Fi</li>
+          </ul>
+          <span class="badge">Coming soon to Google Play</span>
+        </div>
+      </article>
+      <article class="app-card app-card-next">
+        <div class="next-plus" aria-hidden="true">+</div>
+        <div class="app-body">
+          <h3>Next project</h3>
+          <p class="app-tag">Something new is on the way.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <h2 class="title">About</h2>
+    <div class="about">
+      <div class="about-text">
+        <p>AC App Labs is a small, independent studio. We design and build every app ourselves, with a focus on doing a few things really well.</p>
+        <p>Our first app, Wayfile, started as a file manager we wanted for our own phones: fast, tidy and respectful of your privacy.</p>
+      </div>
+      <ul class="stats">
+        <li><strong>7</strong><span>languages</span></li>
+        <li><strong>8+</strong><span>Android version</span></li>
+        <li><strong>2026</strong><span>founded</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="contact">
+      <h2>Have a question or an idea?</h2>
+      <p>We'd love to hear from you. Our contact address is coming soon.</p>
+      <!-- TODO: replace with the support address once email is set up on acapplabs.com -->
+      <a class="btn btn-light" href="#contact" aria-disabled="true">Email us (soon)</a>
+    </div>
+  </section>
 </main>
-<footer class="foot">© <span id="y">2026</span> AC App Labs</footer>
-<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <a class="brand brand-dark" href="#top">AC App Labs<span>.</span></a>
+    <ul class="footer-links">
+      <li><a href="#apps">Apps</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><span class="soon">Privacy (soon)</span></li>
+      <li><span class="soon">Terms (soon)</span></li>
+    </ul>
+    <p class="copy">© <span id="y">2026</span> AC App Labs</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+  const bar = document.querySelector('.topbar');
+  const btn = document.querySelector('.menu-btn');
+  const menu = document.getElementById('menu');
+  const onScroll = () => bar.classList.toggle('scrolled', window.scrollY > 20);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  btn.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('open');
+    btn.setAttribute('aria-expanded', false);
+  }));
+</script>
 </body>
 </html>
