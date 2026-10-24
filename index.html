@@ -14,6 +14,14 @@
 </head>
 <body>
 
+<!-- Platform glyphs, reused by the hero strip and the app cards. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-android" viewBox="0 0 24 24"><path d="M5 16V11a7 7 0 0 1 14 0v5z"/><path d="M8 4.5 6.8 2.6M16 4.5l1.2-1.9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/><circle cx="9.3" cy="10.5" r="1" fill="var(--glyph-hole, #fff)"/><circle cx="14.7" cy="10.5" r="1" fill="var(--glyph-hole, #fff)"/><rect x="5" y="17" width="14" height="3.5" rx="1.5"/></symbol>
+  <symbol id="i-windows" viewBox="0 0 24 24"><path d="M3 5.5 10.5 4.4v7H3zM11.8 4.2 21 3v8.4h-9.2zM3 12.6h7.5v7L3 18.5zM11.8 12.6H21V21l-9.2-1.3z"/></symbol>
+  <symbol id="i-apple" viewBox="0 0 24 24"><path d="M16.4 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.9-3-.9c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.5-1-2.5-3.7zM14.2 5.8c.6-.8 1.1-1.8 1-2.8-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.7-1 2.7 1 .1 2-.5 2.7-1.3z"/></symbol>
+  <symbol id="i-linux" viewBox="0 0 24 24"><path d="M12 2c-2.2 0-3.6 1.8-3.6 4.3 0 1.4.3 2.3-.7 3.8C6.3 12 5 13.8 5 16.3c0 1 .3 1.8.8 2.4L4.6 20c-.3.4 0 1 .5 1h4.1c.6.6 1.6 1 2.8 1s2.2-.4 2.8-1h4.1c.5 0 .8-.6.5-1l-1.2-1.3c.5-.6.8-1.4.8-2.4 0-2.5-1.3-4.3-2.7-6.2-1-1.5-.7-2.4-.7-3.8C15.6 3.8 14.2 2 12 2z"/><ellipse cx="12" cy="15.5" rx="3.6" ry="4.3" fill="var(--glyph-hole, #fff)"/><circle cx="10.6" cy="6.3" r=".9" fill="var(--glyph-hole, #fff)"/><circle cx="13.4" cy="6.3" r=".9" fill="var(--glyph-hole, #fff)"/><path d="M10.7 8.2h2.6L12 9.6z" fill="#f5b83d"/></symbol>
+</svg>
+
 <header class="topbar" id="top">
   <nav class="nav">
     <a class="brand" href="#top">AC App Labs<span>.</span></a>
@@ -33,16 +41,30 @@
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-text">
-      <span class="ghost-letter" aria-hidden="true">A</span>
+      <!-- Studio mark watermark. When the studio logo is ready, replace the letter with
+           <img src="assets/studio-mark-white.png" alt=""> (white, transparent PNG or SVG). -->
+      <div class="ghost-mark" aria-hidden="true">A</div>
       <p class="eyebrow">Independent app studio</p>
       <h1>Simple apps,<br>made with care.</h1>
-      <p class="lead">We build clean, privacy-friendly tools that make everyday tasks on your phone a little easier.</p>
+      <p class="lead">We build clean, privacy-friendly tools for your phone and your computer, so everyday tasks feel a little easier.</p>
       <div class="hero-actions">
         <a class="btn btn-accent" href="#apps">Explore our apps</a>
         <a class="btn btn-ghost" href="#about">About us</a>
       </div>
+      <ul class="platforms" aria-label="Platforms">
+        <li><svg><use href="#i-android"/></svg>Android</li>
+        <li><svg><use href="#i-windows"/></svg>Windows</li>
+        <li><svg><use href="#i-apple"/></svg>macOS</li>
+        <li><svg><use href="#i-linux"/></svg>Linux</li>
+      </ul>
     </div>
-    <div class="hero-phone">
+    <div class="hero-devices">
+      <div class="laptop">
+        <div class="laptop-screen">
+          <img src="assets/wayfile-pc.jpg" alt="Wayfile in a computer's browser" width="960" height="600">
+        </div>
+        <div class="laptop-base"></div>
+      </div>
       <div class="phone">
         <img src="assets/wayfile-home.jpg" alt="Wayfile home screen" width="540" height="1200">
       </div>
@@ -65,25 +87,31 @@
       </article>
       <article class="card">
         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>
-        <h3>Easy to use</h3>
-        <p>Clear screens and friendly wording, so anyone can get things done in a few taps.</p>
+        <h3>Easy for everyone</h3>
+        <p>Clear screens and friendly wording, in 7 languages including right-to-left Arabic.</p>
       </article>
       <article class="card">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>
-        <h3>Made for everyone</h3>
-        <p>Available in 7 languages, including right-to-left Arabic, from day one.</p>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="15" height="11" rx="2"/><path d="M6 19h7M9.5 15v4"/><rect x="16" y="9" width="6" height="11" rx="1.5"/></svg>
+        <h3>On every device</h3>
+        <p>Phone or computer, Windows, macOS or Linux: the same care on every screen.</p>
       </article>
     </div>
   </section>
 
   <section class="section section-tint" id="apps">
     <h2 class="title">Our apps</h2>
+    <div class="filters" role="group" aria-label="Filter apps">
+      <button class="chip active" data-filter="all">All</button>
+      <button class="chip" data-filter="mobile">Mobile</button>
+      <button class="chip" data-filter="desktop">Desktop</button>
+    </div>
     <div class="apps">
-      <article class="app-card" id="wayfile">
+      <article class="app-card" id="wayfile" data-kind="mobile">
         <img class="app-icon" src="assets/wayfile.png" alt="" width="88" height="88">
         <div class="app-body">
           <h3>Wayfile</h3>
           <p class="app-tag">File manager for Android</p>
+          <ul class="tags"><li><svg><use href="#i-android"/></svg>Android</li><li>Works with Windows, macOS &amp; Linux over Wi-Fi</li></ul>
           <ul class="ticks">
             <li>Browse, search and organize every file</li>
             <li>Free up space with smart cleanup</li>
@@ -92,11 +120,12 @@
           <span class="badge">Coming soon to Google Play</span>
         </div>
       </article>
-      <article class="app-card app-card-next">
+      <article class="app-card app-card-next" data-kind="mobile desktop">
         <div class="next-plus" aria-hidden="true">+</div>
         <div class="app-body">
           <h3>Next project</h3>
-          <p class="app-tag">Something new is on the way.</p>
+          <p class="app-tag">New ideas for mobile and desktop are on the way.</p>
+          <ul class="tags"><li><svg><use href="#i-windows"/></svg>Windows</li><li><svg><use href="#i-apple"/></svg>macOS</li><li><svg><use href="#i-linux"/></svg>Linux</li></ul>
         </div>
       </article>
     </div>
@@ -156,6 +185,14 @@
   menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
     menu.classList.remove('open');
     btn.setAttribute('aria-expanded', false);
+  }));
+  const chips = document.querySelectorAll('.filters .chip');
+  chips.forEach(chip => chip.addEventListener('click', () => {
+    chips.forEach(c => c.classList.toggle('active', c === chip));
+    const f = chip.dataset.filter;
+    document.querySelectorAll('.apps .app-card').forEach(card => {
+      card.hidden = f !== 'all' && !card.dataset.kind.split(' ').includes(f);
+    });
   }));
 </script>
 </body>
