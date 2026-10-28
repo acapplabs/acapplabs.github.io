@@ -35,7 +35,7 @@
       <li><a href="#apps">Apps</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a class="btn btn-outline" href="#wayfile">Get Wayfile</a></li>
+      <li><a class="btn btn-outline" href="/wayfile/">Get Wayfile</a></li>
     </ul>
   </nav>
 </header>
@@ -88,7 +88,7 @@
       <article class="card">
         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>
         <h3>Easy for everyone</h3>
-        <p>Clear screens and friendly wording, in 7 languages including right-to-left Arabic.</p>
+        <p>Clear screens and friendly wording, in 14 languages including right-to-left Arabic.</p>
       </article>
       <article class="card">
         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="15" height="11" rx="2"/><path d="M6 19h7M9.5 15v4"/><rect x="16" y="9" width="6" height="11" rx="1.5"/></svg>
@@ -118,6 +118,7 @@
             <li>Send files to your PC or NAS over Wi-Fi</li>
           </ul>
           <span class="badge">Coming soon to Google Play</span>
+          <p class="more"><a href="/wayfile/">Learn more →</a></p>
         </div>
       </article>
       <article class="app-card app-card-next" data-kind="mobile desktop">
@@ -139,7 +140,7 @@
         <p>Our first app, Wayfile, started as a file manager we wanted for our own phones: fast, tidy and respectful of your privacy.</p>
       </div>
       <ul class="stats">
-        <li><strong>7</strong><span>languages</span></li>
+        <li><strong>14</strong><span>languages</span></li>
         <li><strong>8+</strong><span>Android version</span></li>
         <li><strong>2026</strong><span>founded</span></li>
       </ul>
@@ -163,29 +164,16 @@
       <li><a href="#apps">Apps</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><span class="soon">Privacy (soon)</span></li>
-      <li><span class="soon">Terms (soon)</span></li>
+      <li><a href="/wayfile/privacy/">Privacy</a></li>
+      <li><a href="/wayfile/terms/">Terms</a></li>
+      <li><a href="/support/">Support</a></li>
     </ul>
     <p class="copy">© <span id="y">2026</span> AC App Labs</p>
   </div>
 </footer>
 
+<script src="/assets/site.js"></script>
 <script>
-  document.getElementById('y').textContent = new Date().getFullYear();
-  const bar = document.querySelector('.topbar');
-  const btn = document.querySelector('.menu-btn');
-  const menu = document.getElementById('menu');
-  const onScroll = () => bar.classList.toggle('scrolled', window.scrollY > 20);
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-  btn.addEventListener('click', () => {
-    const open = menu.classList.toggle('open');
-    btn.setAttribute('aria-expanded', open);
-  });
-  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    menu.classList.remove('open');
-    btn.setAttribute('aria-expanded', false);
-  }));
   const chips = document.querySelectorAll('.filters .chip');
   chips.forEach(chip => chip.addEventListener('click', () => {
     chips.forEach(c => c.classList.toggle('active', c === chip));
