@@ -138,6 +138,15 @@ h1 { font-size: clamp(2.5rem, 6vw, 4.4rem); line-height: 1.08; font-weight: 800;
 .doc-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
 .doc-links .btn { background: var(--tint); color: var(--brand-a); }
 .footer-links .current { color: var(--brand-a); }
+.doc .meta { font-size: .95rem; }
+.lang-link { display: inline-block; margin-top: 6px; padding: 4px 16px; border-radius: 999px; border: 2px solid rgba(255, 255, 255, .5); font-weight: 700; font-size: .95rem; }
+.lang-link:hover { background: rgba(255, 255, 255, .12); }
+.table-wrap { overflow-x: auto; margin-bottom: 14px; }
+.doc table { width: 100%; border-collapse: collapse; font-size: .98rem; }
+.doc th, .doc td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); color: var(--muted); }
+.doc th { color: var(--ink); background: var(--tint); }
+.doc td:first-child { font-weight: 700; color: var(--ink); width: 38%; }
+.doc a { overflow-wrap: anywhere; }
 
 /* Footer */
 .footer { border-top: 1px solid var(--line); padding: 40px 16px; }
