@@ -266,8 +266,8 @@ page("/", "AC App Labs – Independent software studio",
         ("box", "Booby-trapped files", "ZIP files that lie about their size or try to escape their folder, and a 20,000 × 20,000 pixel image. No crash, nothing written outside."),
         ("file", "Tricky file names", "Names with hidden direction characters that disguise an app as a document are shown as they really are."),
         ("wifi", "Real-world networks", "Open Wi-Fi without a password, mobile data, and a phone locked in the middle of a transfer."),
-        ("phone", "Many phones, many versions", "Two real phones, and Android 9, 10, 11, 12, 13 and 17 on emulators, from a 79-step test list."),
-        ("bolt", "Speed, measured", "Cold start timed on a real phone: about a third of a second on a recent Xiaomi.")])}
+        ("phone", "Many phones, many versions", "Real phones of different brands and many Android versions, checked against a 79-step test list."),
+        ("bolt", "Speed, measured", "Cold start timed on a real phone: about a third of a second.")])}
   </div>
 </section>
 
@@ -430,7 +430,7 @@ page("/process/", "How we work – AC App Labs",
 {head_center("In numbers", "Wayfile's road to release")}
     <div class="stats">
       <div><strong>79</strong><span>steps in the written test list</span></div>
-      <div><strong>2 + 6</strong><span>real phones and emulated Android versions</span></div>
+      <div><strong>9–17</strong><span>Android versions checked</span></div>
       <div><strong>31</strong><span>issues logged in testing, each fixed or explained</span></div>
       <div><strong>3</strong><span>security review rounds</span></div>
     </div>
