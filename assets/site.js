@@ -23,12 +23,22 @@ document.addEventListener('click', e => {
 document.addEventListener('keydown', e => { if (e.key === 'Escape') { setMega(false); closeMenu(); } });
 menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { setMega(false); closeMenu(); }));
 
-// Carousel arrows scroll one card at a time.
-document.querySelectorAll('[data-rail]').forEach(b => b.addEventListener('click', () => {
-  const rail = document.getElementById(b.dataset.rail);
-  const step = rail.firstElementChild.getBoundingClientRect().width + 20;
-  rail.scrollBy({ left: step * Number(b.dataset.dir), behavior: 'smooth' });
-}));
+// Carousel arrows move one card at a time and grey out at either end.
+document.querySelectorAll('.rail').forEach(rail => {
+  const buttons = document.querySelectorAll(`[data-rail="${rail.id}"]`);
+  const step = () => rail.firstElementChild.getBoundingClientRect().width + parseFloat(getComputedStyle(rail).columnGap || 0);
+  const update = () => {
+    const max = rail.scrollWidth - rail.clientWidth - 2;
+    buttons.forEach(b => b.disabled = Number(b.dataset.dir) < 0 ? rail.scrollLeft <= 2 : rail.scrollLeft >= max);
+  };
+  buttons.forEach(b => b.addEventListener('click', () => {
+    const target = Math.round(rail.scrollLeft / step() + Number(b.dataset.dir)) * step();
+    rail.scrollTo({ left: target, behavior: 'smooth' });
+  }));
+  rail.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+});
 
 // Showcase: tabs and selectable numbers. Cycles until the visitor picks one.
 const views = document.querySelectorAll('.view');

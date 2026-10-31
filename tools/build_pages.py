@@ -19,7 +19,7 @@ HEAD = """<!doctype html>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/site.css?v=2">
 </head>
 <body>
 
@@ -56,6 +56,7 @@ HEAD = """<!doctype html>
 </header>
 
 <section class="page-hero">
+  <div class="galaxy" aria-hidden="true"><i></i><i></i><i></i><i class="swirl"></i><b></b></div>
   <div class="wrap">
 {hero}
   </div>
@@ -76,7 +77,7 @@ HEAD = """<!doctype html>
   <div class="wrap fbottom">© <span id="y">2026</span> AC App Labs. All rights reserved.</div>
 </footer>
 
-<script src="/assets/site.js"></script>
+<script src="/assets/site.js?v=2"></script>
 </body>
 </html>
 """
