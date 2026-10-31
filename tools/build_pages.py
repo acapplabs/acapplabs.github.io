@@ -568,12 +568,6 @@ page("/wayfile/", "Wayfile – File manager for Android",
       <div><strong>9–17</strong><span>Android versions checked</span></div>
       <div><strong>3</strong><span>security review rounds</span></div>
     </div>
-    <ul class="devices" aria-label="Test devices">
-      <li>Xiaomi <span>· Android 16, HyperOS</span></li>
-      <li>General Mobile GM 24 Plus</li>
-      <li>Emulators <span>· Android 9, 10, 11, 12, 13, 17</span></li>
-      <li>Phones and tablets</li>
-    </ul>
     <div class="cards mt">
       <article class="card">{ico("flask")}<h3>Every feature, step by step</h3><p>Install, start-up time, file operations, cleanup, PC and NAS transfer, languages and permissions, each with an expected result.</p></article>
       <article class="card">{ico("eye")}<h3>Attacks tried on purpose</h3><p>Wrong PINs, requests from another computer, crafted ZIP files and misleading file names are all refused.</p></article>
