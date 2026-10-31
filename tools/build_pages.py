@@ -12,53 +12,68 @@ HEAD = """<!doctype html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="{desc}">
-<meta name="theme-color" content="#4f5bea">
+<meta name="theme-color" content="#08104a">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/assets/studio-logo.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
 
-<header class="topbar" id="top">
-  <nav class="nav">
-    <a class="brand" href="/"><img class="brand-mark" src="/assets/studio-logo-white.svg" alt="" width="34" height="34">AC App Labs<span>.</span></a>
-    <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="menu">
-      <span></span><span></span><span></span>
-    </button>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="arr" viewBox="0 0 12 12"><path d="M3 9 9 3M4 3h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+</svg>
+
+<div class="infobar">
+  <div class="wrap">
+    <span><span class="dot"></span>Wayfile is coming soon to Google Play · <a href="/wayfile/">Learn more</a></span>
+    <ul><li><a href="/support/">Support</a></li><li><a href="/wayfile/privacy/">Privacy</a></li></ul>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/assets/studio-logo.svg" alt="" width="34" height="34">AC App Labs</a>
     <ul class="menu" id="menu">
       <li><a href="/">Home</a></li>
-      <li><a href="/#apps">Apps</a></li>
-      <li><a href="/#about">About</a></li>
-      <li><a href="/support/">Support</a></li>
-      <li><a class="btn btn-outline" href="/wayfile/">Get Wayfile</a></li>
+      <li>
+        <button aria-expanded="false" aria-controls="mega">Apps <svg class="chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <div class="mega" id="mega">
+          <a href="/wayfile/"><img src="/assets/wayfile.png" alt=""><span><b>Wayfile</b><small>File manager for Android</small></span><span class="tag">Soon</span></a>
+          <a href="/#apps"><span class="slot" aria-hidden="true">+</span><span><b>Next project</b><small>Desktop app, in planning</small></span><span class="tag">Planning</span></a>
+        </div>
+      </li>
+      <li><a href="/#process">How we work</a></li>
+      <li><a href="/#studio">Studio</a></li>
+      <li><a href="/support/"{support_current}>Support <span class="badge-new">FAQ</span></a></li>
     </ul>
-  </nav>
+    <a class="btn btn-blue" href="/#contact">Get in touch</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+  </div>
 </header>
 
 <section class="page-hero">
+  <div class="wrap">
 {hero}
-  <svg class="wave" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true">
-    <path class="wave-back" d="M0,70 C260,10 520,120 820,70 C1080,28 1260,40 1440,80 L1440,140 L0,140 Z"/>
-    <path class="wave-front" d="M0,96 C240,140 500,40 760,74 C1020,108 1220,128 1440,84 L1440,140 L0,140 Z"/>
-  </svg>
+  </div>
 </section>
 
-<main class="doc">
+<main{main_cls}>
 {body}
 </main>
 
-<footer class="footer">
-  <div class="footer-inner">
-    <a class="brand brand-dark" href="/"><img class="brand-mark" src="/assets/studio-logo.svg" alt="" width="30" height="30">AC App Labs<span>.</span></a>
-    <ul class="footer-links">
-{links}
-    </ul>
-    <p class="copy">© <span id="y">2026</span> AC App Labs</p>
+<footer>
+  <div class="wrap fgrid">
+    <div>
+      <a class="brand" href="/"><img src="/assets/studio-logo.svg" alt="" width="34" height="34">AC App Labs</a>
+      <p>An independent software studio building clear, privacy-friendly apps for phones and computers.</p>
+    </div>
+{columns}
   </div>
+  <div class="wrap fbottom">© <span id="y">2026</span> AC App Labs. All rights reserved.</div>
 </footer>
 
 <script src="/assets/site.js"></script>
@@ -66,93 +81,124 @@ HEAD = """<!doctype html>
 </html>
 """
 
-LINKS = [("/wayfile/", "Wayfile"), ("/wayfile/privacy/", "Privacy"), ("/wayfile/terms/", "Terms"), ("/wayfile/licenses/", "Licenses"), ("/support/", "Support")]
+COLUMNS = [
+    ("Apps", [("/wayfile/", "Wayfile"), ("/#apps", "Next project")]),
+    ("Studio", [("/#process", "How we work"), ("/#studio", "Our promise"), ("/support/", "Support")]),
+    ("Legal", [("/wayfile/privacy/", "Privacy policy"), ("/wayfile/terms/", "Terms of use"), ("/wayfile/licenses/", "Licenses")]),
+]
 
 
 def footer(current):
-    rows = []
-    for href, label in LINKS:
-        cls = ' class="current" aria-current="page"' if href == current else ""
-        rows.append(f'      <li><a href="{href}"{cls}>{label}</a></li>')
-    return "\n".join(rows)
+    out, here = [], ' aria-current="page"'
+    for title, links in COLUMNS:
+        items = "".join(
+            f'<li><a href="{href}"{here if href == current else ""}>{label}</a></li>'
+            for href, label in links)
+        out.append(f"    <div><h4>{title}</h4><ul>{items}</ul></div>")
+    return "\n".join(out)
 
 
-def page(path, title, desc, hero, body, lang="en"):
+def page(path, title, desc, hero, body, lang="en", doc=True):
     out = ROOT / path.strip("/") / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
-    html = HEAD.format(lang=lang, title=title, desc=desc, hero=hero.rstrip(), body=body.strip("\n"), links=footer(path))
+    html = HEAD.format(lang=lang, title=title, desc=desc, hero=hero.rstrip(), body=body.strip("\n"),
+                       main_cls=' class="doc"' if doc else "", columns=footer(path),
+                       support_current=' aria-current="page"' if path == "/support/" else "")
     out.write_text(html, encoding="utf-8", newline="\n")
     print("wrote", out)
 
 
+def icon(paths):
+    return f'<span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true">{paths}</svg></span>'
+
+
+FEATURES = [
+    ('<path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>',
+     "Browse and organize", "Every file and folder, with tags, a file basket and a recycle bin you can restore from."),
+    ('<circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5"/>',
+     "Find inside documents", "Search the text of PDF, Word and Excel files, right on the phone."),
+    ('<path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/>',
+     "Free up space", "Find large files, duplicates and app caches, and see what fills your phone."),
+    ('<rect x="2" y="4" width="15" height="11" rx="2"/><path d="M6 19h7M9.5 15v4"/><rect x="16" y="9" width="6" height="11" rx="1.5"/>',
+     "Computer over Wi-Fi", "Send files to any browser on your computer, protected by a one-time PIN."),
+    ('<rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><path d="M7 7h.01M7 17h.01"/>',
+     "NAS and shared folders", "Browse your NAS or a shared PC folder, back up your phone and keep folders in sync."),
+    ('<path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M11 11h2M11 14h2M11 17h2"/>',
+     "Archives and contact cards", "Open and extract ZIP files, and add people from .vcf contact cards to your contacts."),
+]
+
 page("/wayfile/", "Wayfile – File manager for Android",
      "Wayfile is a file manager for Android: browse and organize files, free up space, and send files to your computer or NAS over Wi-Fi. Your files stay on your device.",
-     """  <img class="app-icon" src="/assets/wayfile.png" alt="" width="88" height="88">
-  <h1>Wayfile</h1>
-  <p class="lead">A tidy, private file manager for Android, with Wi-Fi transfer to your computer and NAS.</p>""",
-     """
-  <div class="shots">
-    <img src="/assets/wayfile-pc.jpg" alt="Wayfile's transfer page in a computer's browser" width="960" height="600">
-    <img src="/assets/wayfile-home.jpg" alt="Wayfile home screen on a phone" width="540" height="1200">
+     """    <img class="app-icon" src="/assets/wayfile.png" alt="" width="88" height="88">
+    <h1>Wayfile</h1>
+    <p class="lead">A tidy, private file manager for Android, with Wi-Fi transfer to your computer and NAS.</p>
+    <span class="status">Coming soon to Google Play</span>""",
+     f"""
+<section class="block">
+  <div class="wrap">
+    <div class="head-center"><p class="kicker">What it does</p><h2>Everything your files need,<br>in one clear app</h2></div>
+    <div class="features">
+{chr(10).join(f'      <article class="feature">{icon(p)}<h3>{t}</h3><p>{d}</p></article>' for p, t, d in FEATURES)}
+    </div>
   </div>
+</section>
 
-  <h2>What it does</h2>
-  <ul class="ticks">
-    <li>Browse, search and organize every file, with tags, a file basket and a trash you can restore from.</li>
-    <li>Free up space: find large files, duplicates and app caches.</li>
-    <li>Send files to your computer over Wi-Fi from any browser, protected by a one-time PIN.</li>
-    <li>Use your NAS or a shared PC folder: browse, back up your phone, and keep folders in sync.</li>
-    <li>Open and extract ZIP files, and add people from contact cards (.vcf) to your contacts.</li>
-  </ul>
-
-  <h2>Private by design</h2>
-  <ul class="ticks">
-    <li>No account or sign-up.</li>
-    <li>Your files stay on your phone. Transfers go straight to your own computer or NAS on your local network.</li>
-    <li>Wayfile never reads your contacts; it only hands a contact card to your phone's Contacts app when you ask.</li>
-  </ul>
-
-  <h2>Details</h2>
-  <ul class="ticks">
-    <li>Android 8.0 or newer, phones and tablets.</li>
-    <li>14 languages, including right-to-left Arabic.</li>
-    <li>Free with small ads; a one-time Pro purchase removes them.</li>
-  </ul>
-  <p><span class="badge">Coming soon to Google Play</span></p>
-
-  <div class="doc-links">
-    <a class="btn" href="/wayfile/privacy/">Privacy policy</a>
-    <a class="btn" href="/wayfile/terms/">Terms of use</a>
-    <a class="btn" href="/support/">Support</a>
+<section class="block soft">
+  <div class="wrap split">
+    <div class="collage">
+      <div class="pc"><img src="/assets/wayfile-pc.jpg" alt="Wayfile's transfer page in a computer's browser" width="960" height="600"></div>
+      <div class="ph"><img src="/assets/wayfile-home.jpg" alt="Wayfile home screen on a phone" width="540" height="1200"></div>
+    </div>
+    <div>
+      <p class="kicker">Private by design</p>
+      <h2>Your files stay on your phone</h2>
+      <ul class="ticks">
+        <li>No account or sign-up.</li>
+        <li>Transfers go straight to your own computer or NAS on your local network.</li>
+        <li>Every computer connection is approved on the phone, with a PIN that works once.</li>
+        <li>Wayfile never reads your contacts; it only hands a contact card to your phone's Contacts app when you ask.</li>
+      </ul>
+      <a class="btn btn-blue" href="/wayfile/privacy/">Read the privacy policy <svg class="arrow"><use href="#arr"/></svg></a>
+    </div>
   </div>
-""")
+</section>
 
-PENDING = """  <div class="notice">
-    <p><strong>This page is being prepared.</strong> The full {what} for Wayfile will be published here before the app is released on Google Play.</p>
-    <p>Questions in the meantime? See <a href="/support/">Support</a>.</p>
+<section class="block">
+  <div class="wrap">
+    <div class="head-center"><p class="kicker">Details</p><h2>Good to know</h2></div>
+    <div class="facts-row">
+      <div><strong>Android 8.0 or newer</strong><span>Phones and tablets.</span></div>
+      <div><strong>14 languages</strong><span>Including right-to-left Arabic.</span></div>
+      <div><strong>Free with small ads</strong><span>A one-time Pro purchase removes them.</span></div>
+    </div>
+    <div class="doc-links" style="justify-content:center">
+      <a class="btn btn-line" href="/wayfile/terms/">Terms of use</a>
+      <a class="btn btn-line" href="/wayfile/licenses/">Open-source licenses</a>
+      <a class="btn btn-line" href="/support/">Support</a>
+    </div>
   </div>
-"""
+</section>
+""", doc=False)
 
 page("/support/", "Support – AC App Labs",
      "Help and contact for AC App Labs apps, including Wayfile.",
-     """  <p class="eyebrow">AC App Labs</p>
-  <h1>Support</h1>
-  <p class="lead">Answers to common questions, and how to reach us.</p>""",
+     """    <p class="eyebrow">AC App Labs</p>
+    <h1>Support</h1>
+    <p class="lead">Answers to common questions, and how to reach us.</p>""",
      """
   <h2>Wayfile: common questions</h2>
-  <p><strong>How do I send files to my computer?</strong><br>
-  Connect the phone and the computer to the same Wi-Fi. In Wayfile, open <em>PC transfer</em>, type the address it shows into the computer's browser and enter the PIN. Nothing needs to be installed on the computer.</p>
-  <p><strong>Does Wayfile upload my files anywhere?</strong><br>
-  No. Files only move when you send them, and only to your own computer or NAS on your local network.</p>
-  <p><strong>Not sure what a feature does?</strong><br>
-  Tap the ⓘ button on a home screen tile to see what it does and how to use it.</p>
+  <details class="faq" open><summary>How do I send files to my computer?</summary>
+  <p>Connect the phone and the computer to the same Wi-Fi. In Wayfile, open <em>PC transfer</em>, type the address it shows into the computer's browser and enter the PIN. Nothing needs to be installed on the computer.</p></details>
+  <details class="faq"><summary>Does Wayfile upload my files anywhere?</summary>
+  <p>No. Files only move when you send them, and only to your own computer or NAS on your local network.</p></details>
+  <details class="faq"><summary>Not sure what a feature does?</summary>
+  <p>Tap the ⓘ button on a home screen tile to see what it does and how to use it.</p></details>
 
   <h2>Contact</h2>
   <div class="notice">
     <p>Our support email address is coming soon. It will be listed here and on the Google Play page.</p>
   </div>
 """)
-
 
 import html as H, re
 

@@ -5,41 +5,55 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Wayfile – Open-source licenses</title>
 <meta name="description" content="Open-source libraries used in Wayfile and their licenses.">
-<meta name="theme-color" content="#4f5bea">
+<meta name="theme-color" content="#08104a">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/assets/studio-logo.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
 
-<header class="topbar" id="top">
-  <nav class="nav">
-    <a class="brand" href="/"><img class="brand-mark" src="/assets/studio-logo-white.svg" alt="" width="34" height="34">AC App Labs<span>.</span></a>
-    <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="menu">
-      <span></span><span></span><span></span>
-    </button>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="arr" viewBox="0 0 12 12"><path d="M3 9 9 3M4 3h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+</svg>
+
+<div class="infobar">
+  <div class="wrap">
+    <span><span class="dot"></span>Wayfile is coming soon to Google Play · <a href="/wayfile/">Learn more</a></span>
+    <ul><li><a href="/support/">Support</a></li><li><a href="/wayfile/privacy/">Privacy</a></li></ul>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/assets/studio-logo.svg" alt="" width="34" height="34">AC App Labs</a>
     <ul class="menu" id="menu">
       <li><a href="/">Home</a></li>
-      <li><a href="/#apps">Apps</a></li>
-      <li><a href="/#about">About</a></li>
-      <li><a href="/support/">Support</a></li>
-      <li><a class="btn btn-outline" href="/wayfile/">Get Wayfile</a></li>
+      <li>
+        <button aria-expanded="false" aria-controls="mega">Apps <svg class="chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <div class="mega" id="mega">
+          <a href="/wayfile/"><img src="/assets/wayfile.png" alt=""><span><b>Wayfile</b><small>File manager for Android</small></span><span class="tag">Soon</span></a>
+          <a href="/#apps"><span class="slot" aria-hidden="true">+</span><span><b>Next project</b><small>Desktop app, in planning</small></span><span class="tag">Planning</span></a>
+        </div>
+      </li>
+      <li><a href="/#process">How we work</a></li>
+      <li><a href="/#studio">Studio</a></li>
+      <li><a href="/support/">Support <span class="badge-new">FAQ</span></a></li>
     </ul>
-  </nav>
+    <a class="btn btn-blue" href="/#contact">Get in touch</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+  </div>
 </header>
 
 <section class="page-hero">
+  <div class="wrap">
   <p class="eyebrow">Wayfile</p>
   <h1>Open-source licenses</h1>
   <p class="lead">Wayfile is built with these libraries. Thanks to their authors.</p>
-  <svg class="wave" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true">
-    <path class="wave-back" d="M0,70 C260,10 520,120 820,70 C1080,28 1260,40 1440,80 L1440,140 L0,140 Z"/>
-    <path class="wave-front" d="M0,96 C240,140 500,40 760,74 C1020,108 1220,128 1440,84 L1440,140 L0,140 Z"/>
-  </svg>
+  </div>
 </section>
 
 <main class="doc">
@@ -531,18 +545,17 @@ The Apache Software Foundation (http://www.apache.org/).</pre>
   <p><a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a> · <a href="https://opensource.org/license/mit">MIT License</a> · <a href="https://opensource.org/license/bsd-3-clause">BSD 3-Clause License</a></p>
 </main>
 
-<footer class="footer">
-  <div class="footer-inner">
-    <a class="brand brand-dark" href="/"><img class="brand-mark" src="/assets/studio-logo.svg" alt="" width="30" height="30">AC App Labs<span>.</span></a>
-    <ul class="footer-links">
-      <li><a href="/wayfile/">Wayfile</a></li>
-      <li><a href="/wayfile/privacy/">Privacy</a></li>
-      <li><a href="/wayfile/terms/">Terms</a></li>
-      <li><a href="/wayfile/licenses/" class="current" aria-current="page">Licenses</a></li>
-      <li><a href="/support/">Support</a></li>
-    </ul>
-    <p class="copy">© <span id="y">2026</span> AC App Labs</p>
+<footer>
+  <div class="wrap fgrid">
+    <div>
+      <a class="brand" href="/"><img src="/assets/studio-logo.svg" alt="" width="34" height="34">AC App Labs</a>
+      <p>An independent software studio building clear, privacy-friendly apps for phones and computers.</p>
+    </div>
+    <div><h4>Apps</h4><ul><li><a href="/wayfile/">Wayfile</a></li><li><a href="/#apps">Next project</a></li></ul></div>
+    <div><h4>Studio</h4><ul><li><a href="/#process">How we work</a></li><li><a href="/#studio">Our promise</a></li><li><a href="/support/">Support</a></li></ul></div>
+    <div><h4>Legal</h4><ul><li><a href="/wayfile/privacy/">Privacy policy</a></li><li><a href="/wayfile/terms/">Terms of use</a></li><li><a href="/wayfile/licenses/" aria-current="page">Licenses</a></li></ul></div>
   </div>
+  <div class="wrap fbottom">© <span id="y">2026</span> AC App Labs. All rights reserved.</div>
 </footer>
 
 <script src="/assets/site.js"></script>
