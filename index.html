@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AC App Labs</title>
+<title>AC App Labs – Independent software studio</title>
 <meta name="description" content="AC App Labs is an independent software studio building clear, privacy-friendly apps for phones and computers. Our first app, Wayfile, is coming soon to Google Play.">
 <meta name="theme-color" content="#08104a">
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=2">
+<link rel="stylesheet" href="/assets/site.css?v=3">
 </head>
 <body>
 
@@ -38,166 +38,106 @@
         <button aria-expanded="false" aria-controls="mega">Apps <svg class="chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
         <div class="mega" id="mega">
           <a href="/wayfile/"><img src="/assets/wayfile.png" alt=""><span><b>Wayfile</b><small>File manager for Android</small></span><span class="tag">Soon</span></a>
-          <a href="#apps"><span class="slot" aria-hidden="true">+</span><span><b>Next project</b><small>Desktop app, in planning</small></span><span class="tag">Planning</span></a>
+          <a href="/apps/#next"><span class="slot" aria-hidden="true">+</span><span><b>Next project</b><small>Desktop app, in planning</small></span><span class="tag">Planning</span></a>
+          <a href="/apps/"><span class="slot" aria-hidden="true">≡</span><span><b>All apps</b><small>Everything we make</small></span><span></span></a>
         </div>
       </li>
-      <li><a href="#process">How we work</a></li>
-      <li><a href="#studio">Studio</a></li>
+      <li><a href="/about/">Studio</a></li>
+      <li><a href="/process/">How we work</a></li>
+      <li><a href="/security/">Security</a></li>
       <li><a href="/support/">Support <span class="badge-new">FAQ</span></a></li>
     </ul>
-    <a class="btn btn-blue" href="#contact">Get in touch</a>
+    <a class="btn btn-blue" href="/support/#contact">Get in touch</a>
     <button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<section class="hero">
-  <div class="galaxy" aria-hidden="true"><i></i><i></i><i></i><i class="swirl"></i><b></b></div>
+<section class="hero home">
+  <div class="galaxy" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i class="swirl"></i><b></b></div>
   <div class="wrap">
     <span class="pill"><b>New</b>Our first app, Wayfile, is being tested</span>
     <h1>We build <span>clear, reliable apps</span> for phones and computers</h1>
     <p>AC App Labs is an independent software studio. We design, build, translate and test every app ourselves, with privacy as the starting point.</p>
     <div class="actions">
-      <a class="btn btn-blue" href="#apps">Explore our apps</a>
-      <a class="btn btn-ghost" href="#process">How we work <svg class="arrow"><use href="#arr"/></svg></a>
+      <a class="btn btn-blue" href="/apps/">Explore our apps</a>
+      <a class="btn btn-ghost" href="/about/">About the studio <svg class="arrow"><use href="#arr"/></svg></a>
     </div>
     <ul class="platforms" aria-label="Platforms"><li class="now">Android</li><li>Windows</li><li>macOS</li><li>Linux</li></ul>
   </div>
 </section>
 
-<div class="wrap showcase">
-  <div class="stage">
-    <div class="stage-head">
-      <div class="stage-title"><img src="/assets/wayfile.png" alt="" width="44" height="44"><div><b>A closer look at Wayfile</b><small>Tap a number to see what it does</small></div></div>
-      <div class="seg" role="tablist">
-        <button role="tab" aria-selected="true" data-view="v-phone">Phone</button>
-        <button role="tab" aria-selected="false" data-view="v-pc">Computer</button>
-      </div>
-    </div>
-
-    <div class="view phone" id="v-phone">
-      <ol class="notes left">
-        <li><button data-i="1"><span class="n">01</span><span><b>Ready for your PC</b><span class="t">Send files over Wi-Fi. No cable, no account.</span></span></button></li>
-        <li><button data-i="2"><span class="n">02</span><span><b>Added today</b><span class="t">Downloads, saves and shares from today in one place.</span></span></button></li>
-      </ol>
-      <div class="screen">
-        <img src="/assets/wayfile-home.jpg" alt="Wayfile home screen" width="540" height="1200">
-        <button class="hot" data-i="1" style="left:57%;top:6.3%" aria-label="1">1</button>
-        <button class="hot" data-i="2" style="left:4%;top:21%" aria-label="2">2</button>
-        <button class="hot" data-i="3" style="left:27%;top:52%" aria-label="3">3</button>
-        <button class="hot" data-i="4" style="left:5%;top:72.5%" aria-label="4">4</button>
-      </div>
-      <ol class="notes left">
-        <li><button data-i="3"><span class="n">03</span><span><b>Storage at a glance</b><span class="t">Real sizes, read from the disk itself.</span></span></button></li>
-        <li><button data-i="4"><span class="n">04</span><span><b>Every file by type</b><span class="t">Images, videos, documents, archives and apps.</span></span></button></li>
-      </ol>
-      <ol class="notes all">
-        <li><button data-i="1"><span class="n">01</span><span><b>Ready for your PC</b><span class="t">Send files over Wi-Fi. No cable, no account.</span></span></button></li>
-        <li><button data-i="2"><span class="n">02</span><span><b>Added today</b><span class="t">Downloads, saves and shares from today in one place.</span></span></button></li>
-        <li><button data-i="3"><span class="n">03</span><span><b>Storage at a glance</b><span class="t">Real sizes, read from the disk itself.</span></span></button></li>
-        <li><button data-i="4"><span class="n">04</span><span><b>Every file by type</b><span class="t">Images, videos, documents, archives and apps.</span></span></button></li>
-      </ol>
-    </div>
-
-    <div class="view wide" id="v-pc" hidden>
-      <div class="screen">
-        <img src="/assets/wayfile-pc.jpg" alt="Wayfile transfer page in a computer's browser" width="960" height="600">
-        <button class="hot" data-i="1" style="left:61%;top:13%" aria-label="1">1</button>
-        <button class="hot" data-i="2" style="left:33%;top:46%" aria-label="2">2</button>
-        <button class="hot" data-i="3" style="left:33%;top:57%" aria-label="3">3</button>
-        <button class="hot" data-i="4" style="left:33%;top:73%" aria-label="4">4</button>
-      </div>
-      <ol class="notes">
-        <li><button data-i="1"><span class="n">01</span><span><b>Your language</b><span class="t">The page follows the browser's language.</span></span></button></li>
-        <li><button data-i="2"><span class="n">02</span><span><b>One-time PIN</b><span class="t">Six digits from the phone, valid once.</span></span></button></li>
-        <li><button data-i="3"><span class="n">03</span><span><b>Approved on the phone</b><span class="t">Every connection is confirmed there.</span></span></button></li>
-        <li><button data-i="4"><span class="n">04</span><span><b>Direct, no server</b><span class="t">Same network only; files never go to a server.</span></span></button></li>
-      </ol>
-    </div>
-  </div>
-</div>
-
-<section class="block" id="focus">
+<main>
+<section class="block" id="apps">
   <div class="wrap">
     <div class="head-row">
-      <div><p class="kicker">What we focus on</p><h2>Small details that make<br>software feel right</h2></div>
-      <div class="rail-ctrl"><button data-rail="focus-rail" data-dir="-1" aria-label="Previous"><svg><use href="#left"/></svg></button><button data-rail="focus-rail" data-dir="1" aria-label="Next"><svg><use href="#right"/></svg></button></div>
+      <div><p class="kicker">Our apps</p><h2>What we are building</h2></div>
+      <div class="rail-ctrl"><button data-rail="app-rail" data-dir="-1" aria-label="Previous"><svg><use href="#left"/></svg></button><button data-rail="app-rail" data-dir="1" aria-label="Next"><svg><use href="#right"/></svg></button></div>
     </div>
-    <div class="rail" id="focus-rail">
-      <article class="focus"><span class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.4-7 10-4-1.6-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>Privacy by default</h3><p>Files stay on the device. Nothing is uploaded unless you send it.</p></article>
-      <article class="focus" style="--glow: rgba(122,60,240,.6)"><span class="ico"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg></span><h3>Mobile apps</h3><p>Native Android apps that feel at home on any phone, from Android 8 up.</p></article>
-      <article class="focus" style="--glow: rgba(255,61,127,.45)"><span class="ico"><svg viewBox="0 0 24 24"><path d="M3 5h18M3 12h18M3 19h12"/><circle cx="19" cy="19" r="2"/></svg></span><h3>14 languages</h3><p>Every screen translated, including right-to-left Arabic.</p></article>
-      <article class="focus" style="--glow: rgba(35,80,255,.7)"><span class="ico"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="15" height="11" rx="2"/><path d="M6 19h7M9.5 15v4"/><rect x="16" y="9" width="6" height="11" rx="1.5"/></svg></span><h3>Phone and computer</h3><p>Move files between devices over your own Wi-Fi, no cloud in between.</p></article>
-      <article class="focus" style="--glow: rgba(255,194,31,.35)"><span class="ico"><svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v6L5 19a2 2 0 0 0 1.8 2.9h10.4A2 2 0 0 0 19 19l-5-10V3"/></svg></span><h3>Tested on real devices</h3><p>Every release is tried on real phones of different brands.</p></article>
+    <div class="rail wide" id="app-rail">
+      <a class="slide" href="/wayfile/">
+        <div><span class="tagline">Android · Coming soon</span><h3>Wayfile</h3><p>A tidy, private file manager. Browse and clean up your phone, and move files to your computer or NAS over Wi-Fi.</p><span class="btn btn-white">Explore Wayfile <svg class="arrow"><use href="#arr"/></svg></span></div>
+        <div class="shot"><img src="/assets/wayfile-home.jpg" alt="" width="540" height="1200"></div>
+      </a>
+      <a class="slide landscape" href="/wayfile/#closer" style="--glow: rgba(35,80,255,.7)">
+        <div><span class="tagline">Part of Wayfile · Any browser</span><h3>Wayfile PC page</h3><p>Open a page on your computer, type the PIN from your phone and send files both ways. Nothing to install.</p><span class="btn btn-white">See how it works <svg class="arrow"><use href="#arr"/></svg></span></div>
+        <div class="shot"><img src="/assets/wayfile-pc.jpg" alt="" width="960" height="600" style="border-width:3px;border-radius:10px;margin-bottom:12px"></div>
+      </a>
+      <a class="slide next" href="/apps/#next">
+        <div><span class="tagline">In planning</span><h3>Next: a desktop app</h3><p>Our next project is for Windows, macOS and Linux. We will share details when it is ready to show.</p><span class="more-link">All apps <svg class="arrow"><use href="#arr"/></svg></span></div>
+        <div class="plus" aria-hidden="true">+</div>
+      </a>
     </div>
   </div>
 </section>
 
 <section class="block soft">
-  <div class="wrap split">
-    <div class="collage">
-      <div class="pc"><img src="/assets/wayfile-pc.jpg" alt="" width="960" height="600"></div>
-      <div class="ph"><img src="/assets/wayfile-home.jpg" alt="" width="540" height="1200"></div>
+  <div class="wrap">
+    <div class="head-center"><p class="kicker">Our goals</p><h2>What we aim for</h2></div>
+    <div class="cards">
+      <article class="card"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><h3>Software people trust</h3><p>Apps that do what they say, keep data on your device and never surprise you.</p></article>
+      <article class="card"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18M3 12h18M3 19h12"/><circle cx="19" cy="19" r="2"/></svg></span><h3>Clear for everyone</h3><p>Plain words and readable screens, in many languages, for experts and first-time users alike.</p></article>
+      <article class="card"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><h3>Built to last</h3><p>Careful releases, a public changelog and fixes that come before new features.</p></article>
     </div>
-    <div>
-      <p class="kicker">Our first app</p>
-      <h2>Wayfile: your files, tidy and under your control</h2>
-      <p class="lead">A file manager for Android that keeps things simple: browse, clean up and move files between your phone, your computer and your NAS.</p>
-      <p>No account, no cloud copy. Your computer connects with a one-time PIN and every connection is approved on the phone.</p>
-      <div class="duo">
-        <div><i><svg viewBox="0 0 24 24"><path d="M5 12.5a10 10 0 0 1 14 0M8 15.5a6 6 0 0 1 8 0"/><circle cx="12" cy="19" r="1"/></svg></i>Phone to PC<br>over Wi-Fi</div>
-        <div><i><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><path d="M7 7h.01M7 17h.01"/></svg></i>NAS and shared<br>folders</div>
-      </div>
-      <a class="btn btn-blue" href="/wayfile/">Explore Wayfile <svg class="arrow"><use href="#arr"/></svg></a>
+    <p class="center mt"><a class="more-link" href="/about/">More about the studio <svg class="arrow"><use href="#arr"/></svg></a></p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="head-center"><p class="kicker">How we work</p><h2>From idea to release</h2></div>
+    <div class="cards four">
+      <article class="card"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 20 4-1 11-11-3-3L5 16z"/><path d="m14 6 3 3"/></svg></span><h3><span class='num'>01</span>Plan and design</h3><p>Screens and words first, decisions written down.</p></article>
+      <article class="card"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg></span><h3><span class='num'>02</span>Build and translate</h3><p>Native code and every text in 14 languages.</p></article>
+      <article class="card"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6M10 3v6L5 19a2 2 0 0 0 1.8 2.9h10.4A2 2 0 0 0 19 19l-5-10V3"/></svg></span><h3><span class='num'>03</span>Test on real devices</h3><p>Real phones and many Android versions.</p></article>
+      <article class="card"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 15c-1 1-1.5 3.5-1.5 5.5 2 0 4.5-.5 5.5-1.5M9 15l-3-3c1-4 4.5-8.5 12-9-.5 7.5-5 11-9 12z"/><circle cx="15" cy="9" r="1.5"/></svg></span><h3><span class='num'>04</span>Review and release</h3><p>A security review, then a careful release.</p></article>
+    </div>
+    <p class="center mt"><a class="more-link" href="/process/">See our development process <svg class="arrow"><use href="#arr"/></svg></a></p>
+  </div>
+</section>
+
+<section class="block dark">
+  <div class="wrap">
+    <div class="head-row">
+      <div><p class="kicker">Security</p><h2>Privacy is where we start</h2></div>
+      <a class="btn btn-white" href="/security/">How we keep you safe <svg class="arrow"><use href="#arr"/></svg></a>
+    </div>
+    <div class="cards four">
+      <article class="card"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.4-7 10-4-1.6-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>No account, no server</h3><p>Wayfile works without sign-up and has no server of ours to send your files to.</p></article>
+      <article class="card"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><h3>Protected transfers</h3><p>A one-time PIN and an approval on the phone for every computer.</p></article>
+      <article class="card"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M17 6l3 3M15 8l2 2"/></svg></span><h3>Encrypted passwords</h3><p>Saved network passwords are locked with Android's hardware-backed key store.</p></article>
+      <article class="card"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span><h3>Tested like an attacker</h3><p>Every release is checked by trying to break it, not only by using it.</p></article>
     </div>
   </div>
 </section>
 
-<section class="block" id="apps">
+<section class="block">
   <div class="wrap">
-    <div class="head-center"><p class="kicker">Our apps</p><h2>Explore what we have<br>been building</h2></div>
-    <div class="apps">
-      <article class="app">
-        <div class="pic phone-pic"><img src="/assets/wayfile-home.jpg" alt="" width="540" height="1200"></div>
-        <div class="body"><div><h3>Wayfile for Android</h3><small>File manager · Coming soon to Google Play</small></div><a class="go" href="/wayfile/" aria-label="Wayfile"><svg class="arrow"><use href="#arr"/></svg></a></div>
-      </article>
-      <article class="app">
-        <div class="pic"><img src="/assets/wayfile-pc.jpg" alt="" width="960" height="600"></div>
-        <div class="body"><div><h3>Wayfile PC page</h3><small>Part of Wayfile · Works in any browser</small></div><a class="go" href="/wayfile/" aria-label="Wayfile PC page"><svg class="arrow"><use href="#arr"/></svg></a></div>
-      </article>
-      <article class="app">
-        <div class="pic next-pic" aria-hidden="true">+</div>
-        <div class="body"><div><h3>Next: a desktop app</h3><small>Windows, macOS, Linux · In planning</small></div></div>
-      </article>
+    <div class="stats">
+      <div><strong>14</strong><span>languages, including right-to-left Arabic</span></div>
+      <div><strong>Android 8+</strong><span>supported, tested on versions 9 to 17</span></div>
+      <div><strong>79</strong><span>test steps in Wayfile's test list</span></div>
+      <div><strong>3</strong><span>rounds of security review before launch</span></div>
     </div>
-  </div>
-</section>
-
-<section class="block soft" id="process">
-  <div class="wrap">
-    <div class="head-center"><p class="kicker">How we work</p><h2>From idea to release,<br>in three careful steps</h2></div>
-    <div class="process">
-      <div class="step">
-        <svg class="art" viewBox="0 0 150 120" aria-hidden="true"><rect class="fill" x="20" y="18" width="110" height="78" rx="8"/><rect x="20" y="18" width="110" height="78" rx="8"/><path d="M34 40h50M34 54h70M34 68h40"/><path class="accent" d="m98 64 22-22 8 8-22 22-11 3z"/></svg>
-        <span class="num">01</span><h3>Plan and design</h3><p>We decide what the app must do well, sketch each screen and write the words first.</p>
-      </div>
-      <div class="step">
-        <svg class="art" viewBox="0 0 150 120" aria-hidden="true"><rect class="fill" x="18" y="16" width="114" height="80" rx="8"/><rect x="18" y="16" width="114" height="80" rx="8"/><path d="M18 32h114"/><path class="accent" d="m58 52-12 12 12 12M92 52l12 12-12 12M80 48l-10 32"/></svg>
-        <span class="num">02</span><h3>Build and translate</h3><p>Clean code, careful security checks and every text in all 14 languages.</p>
-      </div>
-      <div class="step">
-        <svg class="art" viewBox="0 0 150 120" aria-hidden="true"><rect class="fill" x="52" y="8" width="46" height="96" rx="9"/><rect x="52" y="8" width="46" height="96" rx="9"/><path d="M70 94h10"/><circle class="accent" cx="75" cy="50" r="15"/><path class="accent" d="m68 50 5 5 9-9"/></svg>
-        <span class="num">03</span><h3>Test and release</h3><p>We test on real phones, fix what we find and only then ship the update.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="promise" id="studio">
-  <div class="wrap">
-    <div class="quote-mark" aria-hidden="true">“</div>
-    <blockquote>Your files stay on your device. They leave only when you decide to send them.</blockquote>
-    <p class="who"><b>The AC App Labs promise</b>A small, independent studio. Every app is built and tested here.</p>
-    <ul class="chips"><li>No account needed</li><li>No cloud copy</li><li>14 languages</li><li>Android 8 and up</li></ul>
   </div>
 </section>
 
@@ -205,9 +145,10 @@
   <div class="wrap">
     <h2>Let's talk</h2>
     <p>Questions, ideas or feedback about our apps. We read every message.</p>
-    <a class="btn btn-white" href="#contact" aria-disabled="true">Email address coming soon</a>
+    <a class="btn btn-white" href="/support/">Visit support <svg class="arrow"><use href="#arr"/></svg></a>
   </div>
 </section>
+</main>
 
 <footer>
   <div class="wrap fgrid">
@@ -215,13 +156,13 @@
       <a class="brand" href="/"><img src="/assets/studio-logo.svg" alt="" width="34" height="34">AC App Labs</a>
       <p>An independent software studio building clear, privacy-friendly apps for phones and computers.</p>
     </div>
-    <div><h4>Apps</h4><ul><li><a href="/wayfile/">Wayfile</a></li><li><a href="#apps">Next project</a></li></ul></div>
-    <div><h4>Studio</h4><ul><li><a href="#process">How we work</a></li><li><a href="#studio">Our promise</a></li><li><a href="/support/">Support</a></li></ul></div>
+    <div><h4>Apps</h4><ul><li><a href="/wayfile/">Wayfile</a></li><li><a href="/apps/">All apps</a></li></ul></div>
+    <div><h4>Studio</h4><ul><li><a href="/about/">About the studio</a></li><li><a href="/process/">How we work</a></li><li><a href="/security/">Security</a></li><li><a href="/support/">Support</a></li></ul></div>
     <div><h4>Legal</h4><ul><li><a href="/wayfile/privacy/">Privacy policy</a></li><li><a href="/wayfile/terms/">Terms of use</a></li><li><a href="/wayfile/licenses/">Licenses</a></li></ul></div>
   </div>
   <div class="wrap fbottom">© <span id="y">2026</span> AC App Labs. All rights reserved.</div>
 </footer>
 
-<script src="/assets/site.js?v=2"></script>
+<script src="/assets/site.js?v=3"></script>
 </body>
 </html>

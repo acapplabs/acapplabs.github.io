@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Security – AC App Labs</title>
+<meta name="description" content="How AC App Labs protects your data: no account or server, protected local transfers, encrypted passwords and regular attacker-view testing.">
+<meta name="theme-color" content="#08104a">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/studio-logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=3">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="arr" viewBox="0 0 12 12"><path d="M3 9 9 3M4 3h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="left" viewBox="0 0 16 16"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="right" viewBox="0 0 16 16"><path d="m6 3 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+</svg>
+
+<div class="infobar">
+  <div class="wrap">
+    <span><span class="dot"></span>Wayfile is coming soon to Google Play · <a href="/wayfile/">Learn more</a></span>
+    <ul><li><a href="/support/">Support</a></li><li><a href="/wayfile/privacy/">Privacy</a></li></ul>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/assets/studio-logo.svg" alt="" width="34" height="34">AC App Labs</a>
+    <ul class="menu" id="menu">
+      <li><a href="/">Home</a></li>
+      <li>
+        <button aria-expanded="false" aria-controls="mega">Apps <svg class="chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <div class="mega" id="mega">
+          <a href="/wayfile/"><img src="/assets/wayfile.png" alt=""><span><b>Wayfile</b><small>File manager for Android</small></span><span class="tag">Soon</span></a>
+          <a href="/apps/#next"><span class="slot" aria-hidden="true">+</span><span><b>Next project</b><small>Desktop app, in planning</small></span><span class="tag">Planning</span></a>
+          <a href="/apps/"><span class="slot" aria-hidden="true">≡</span><span><b>All apps</b><small>Everything we make</small></span><span></span></a>
+        </div>
+      </li>
+      <li><a href="/about/">Studio</a></li>
+      <li><a href="/process/">How we work</a></li>
+      <li><a href="/security/" aria-current="page">Security</a></li>
+      <li><a href="/support/">Support <span class="badge-new">FAQ</span></a></li>
+    </ul>
+    <a class="btn btn-blue" href="/support/#contact">Get in touch</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="galaxy" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i class="swirl"></i><b></b></div>
+  <div class="wrap">
+    <p class="eyebrow">Security</p>
+    <h1>Privacy is <span>where we start</span></h1>
+    <p class="lead">What we do to keep your files and data safe, in plain words. Tap a card to read the details.</p>
+  </div>
+</section>
+
+<main>
+<section class="block">
+  <div class="wrap">
+    <div class="more-grid">
+      <details class="more-card"><summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.4-7 10-4-1.6-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><span><b>No account, no server of ours</b><small>Your files stay on your phone.</small></span></summary><div class="more-body"><ul><li>Wayfile works without sign-up or login.</li><li>We do not run a server that receives your files.</li><li>Files leave the phone only when you send them: to your computer, your network storage or an app you choose.</li></ul></div></details>
+      <details class="more-card"><summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><span><b>Protected computer transfers</b><small>Your computer has to prove it is allowed in.</small></span></summary><div class="more-body"><ul><li>A six-digit PIN that works once.</li><li>Every connection is approved on the phone.</li><li>The session is tied to that computer and ends when the phone locks.</li><li>Too many wrong PINs stop the server.</li><li>Connections over mobile data are refused.</li></ul></div></details>
+      <details class="more-card"><summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5a10 10 0 0 1 14 0M8 15.5a6 6 0 0 1 8 0"/><circle cx="12" cy="19" r="1"/></svg></span><span><b>Careful on open networks</b><small>A warning before you use an open Wi-Fi.</small></span></summary><div class="more-body"><ul><li>On Wi-Fi without a password, Wayfile warns before starting a transfer and keeps a warning on screen while it runs (Android 12 and later).</li><li>Outgoing internet traffic is always encrypted (HTTPS).</li></ul></div></details>
+      <details class="more-card"><summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3.5 6"/></svg></span><span><b>Safe on shared computers</b><small>Internet cafés, schools and libraries.</small></span></summary><div class="more-body"><ul><li>Mark the computer as shared when signing in: the session ends after 2 idle minutes and as soon as the tab closes.</li><li>The page signs out and clears itself after a while without activity.</li><li>After disconnecting, it reminds you to delete downloaded files.</li></ul></div></details>
+      <details class="more-card"><summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M17 6l3 3M15 8l2 2"/></svg></span><span><b>Encrypted passwords</b><small>Network passwords can't be read off the phone.</small></span></summary><div class="more-body"><ul><li>Saved NAS and PC passwords are encrypted with Android's hardware-backed key store and can't be decrypted on another device.</li><li>They are left out of backups and device transfers.</li><li>Editing a network location never shows the saved password.</li></ul></div></details>
+      <details class="more-card"><summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M11 11h2M11 14h2M11 17h2"/></svg></span><span><b>Safe with untrusted files</b><small>Archives and file names can't trick the app.</small></span></summary><div class="more-body"><ul><li>ZIP entries that try to write outside the target folder are skipped, and free space is checked first.</li><li>File names with hidden direction characters can't pass an app off as a document.</li><li>Other apps can't make Wayfile open or copy its private data.</li></ul></div></details>
+      <details class="more-card"><summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span><b>Tested like an attacker</b><small>Three rounds of review before launch.</small></span></summary><div class="more-body"><ul><li>A code review for weaknesses, a deep review of every file operation, and a hands-on attempt to break the app from the same Wi-Fi.</li><li>Every finding is fixed and re-tested before release.</li></ul></div></details>
+      <details class="more-card"><summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span><span><b>Fast security updates</b><small>Fixes reach you quickly.</small></span></summary><div class="more-body"><ul><li>Security fixes are released through Google Play.</li><li>Important updates are offered as soon as you open the app and must be installed to continue.</li><li>Every change is listed in a public changelog.</li></ul></div></details>
+    </div>
+  </div>
+</section>
+
+<section class="block soft">
+  <div class="wrap intro">
+    <div><p class="kicker">Found a problem?</p><h2>Report a security issue</h2></div>
+    <div>
+      <p class="big">If you think you have found a security problem in one of our apps, please tell us privately first.</p>
+      <p>Our security contact address will be listed here soon. Until then, see <a class="more-link" href="/support/">Support</a>. The full details of what Wayfile does with data are in the <a class="more-link" href="/wayfile/privacy/">privacy policy</a>.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap fgrid">
+    <div>
+      <a class="brand" href="/"><img src="/assets/studio-logo.svg" alt="" width="34" height="34">AC App Labs</a>
+      <p>An independent software studio building clear, privacy-friendly apps for phones and computers.</p>
+    </div>
+    <div><h4>Apps</h4><ul><li><a href="/wayfile/">Wayfile</a></li><li><a href="/apps/">All apps</a></li></ul></div>
+    <div><h4>Studio</h4><ul><li><a href="/about/">About the studio</a></li><li><a href="/process/">How we work</a></li><li><a href="/security/" aria-current="page">Security</a></li><li><a href="/support/">Support</a></li></ul></div>
+    <div><h4>Legal</h4><ul><li><a href="/wayfile/privacy/">Privacy policy</a></li><li><a href="/wayfile/terms/">Terms of use</a></li><li><a href="/wayfile/licenses/">Licenses</a></li></ul></div>
+  </div>
+  <div class="wrap fbottom">© <span id="y">2026</span> AC App Labs. All rights reserved.</div>
+</footer>
+
+<script src="/assets/site.js?v=3"></script>
+</body>
+</html>

@@ -12,12 +12,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=2">
+<link rel="stylesheet" href="/assets/site.css?v=3">
 </head>
 <body>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="arr" viewBox="0 0 12 12"><path d="M3 9 9 3M4 3h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="left" viewBox="0 0 16 16"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="right" viewBox="0 0 16 16"><path d="m6 3 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
 </svg>
 
 <div class="infobar">
@@ -33,23 +35,25 @@
     <ul class="menu" id="menu">
       <li><a href="/">Home</a></li>
       <li>
-        <button aria-expanded="false" aria-controls="mega">Apps <svg class="chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <button aria-expanded="false" aria-controls="mega" aria-current="page">Apps <svg class="chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
         <div class="mega" id="mega">
           <a href="/wayfile/"><img src="/assets/wayfile.png" alt=""><span><b>Wayfile</b><small>File manager for Android</small></span><span class="tag">Soon</span></a>
-          <a href="/#apps"><span class="slot" aria-hidden="true">+</span><span><b>Next project</b><small>Desktop app, in planning</small></span><span class="tag">Planning</span></a>
+          <a href="/apps/#next"><span class="slot" aria-hidden="true">+</span><span><b>Next project</b><small>Desktop app, in planning</small></span><span class="tag">Planning</span></a>
+          <a href="/apps/"><span class="slot" aria-hidden="true">≡</span><span><b>All apps</b><small>Everything we make</small></span><span></span></a>
         </div>
       </li>
-      <li><a href="/#process">How we work</a></li>
-      <li><a href="/#studio">Studio</a></li>
+      <li><a href="/about/">Studio</a></li>
+      <li><a href="/process/">How we work</a></li>
+      <li><a href="/security/">Security</a></li>
       <li><a href="/support/">Support <span class="badge-new">FAQ</span></a></li>
     </ul>
-    <a class="btn btn-blue" href="/#contact">Get in touch</a>
+    <a class="btn btn-blue" href="/support/#contact">Get in touch</a>
     <button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<section class="page-hero">
-  <div class="galaxy" aria-hidden="true"><i></i><i></i><i></i><i class="swirl"></i><b></b></div>
+<section class="page-hero tall">
+  <div class="galaxy" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i class="swirl"></i><b></b></div>
   <div class="wrap">
     <img class="app-icon" src="/assets/wayfile.png" alt="" width="88" height="88">
     <h1>Wayfile</h1>
@@ -59,16 +63,103 @@
 </section>
 
 <main>
-<section class="block">
+<div class="wrap showcase" id="closer">
+  <div class="stage">
+    <div class="stage-head">
+      <div class="stage-title"><img src="/assets/wayfile.png" alt="" width="44" height="44"><div><b>A closer look at Wayfile</b><small>Tap a number to see what it does</small></div></div>
+      <div class="seg" role="tablist">
+        <button role="tab" aria-selected="true" data-view="v-phone">Phone</button>
+        <button role="tab" aria-selected="false" data-view="v-pc">Computer</button>
+      </div>
+    </div>
+    <div class="view phone" id="v-phone">
+      <ol class="notes left">
+        <li><button data-i="1"><span class="n">01</span><span><b>Ready for your PC</b><span class="t">Send files over Wi-Fi. No cable, no account.</span></span></button></li>
+        <li><button data-i="2"><span class="n">02</span><span><b>Added today</b><span class="t">Downloads, saves and shares from today in one place.</span></span></button></li>
+      </ol>
+      <div class="screen">
+        <img src="/assets/wayfile-home.jpg" alt="Wayfile home screen" width="540" height="1200">
+        <button class="hot" data-i="1" style="left:57%;top:6.3%" aria-label="1">1</button>
+        <button class="hot" data-i="2" style="left:4%;top:21%" aria-label="2">2</button>
+        <button class="hot" data-i="3" style="left:27%;top:52%" aria-label="3">3</button>
+        <button class="hot" data-i="4" style="left:5%;top:72.5%" aria-label="4">4</button>
+      </div>
+      <ol class="notes left">
+        <li><button data-i="3"><span class="n">03</span><span><b>Storage at a glance</b><span class="t">Real sizes, read from the disk itself.</span></span></button></li>
+        <li><button data-i="4"><span class="n">04</span><span><b>Every file by type</b><span class="t">Images, videos, documents, archives and apps.</span></span></button></li>
+      </ol>
+      <ol class="notes all">
+        <li><button data-i="1"><span class="n">01</span><span><b>Ready for your PC</b><span class="t">Send files over Wi-Fi. No cable, no account.</span></span></button></li>
+        <li><button data-i="2"><span class="n">02</span><span><b>Added today</b><span class="t">Downloads, saves and shares from today in one place.</span></span></button></li>
+        <li><button data-i="3"><span class="n">03</span><span><b>Storage at a glance</b><span class="t">Real sizes, read from the disk itself.</span></span></button></li>
+        <li><button data-i="4"><span class="n">04</span><span><b>Every file by type</b><span class="t">Images, videos, documents, archives and apps.</span></span></button></li>
+      </ol>
+    </div>
+    <div class="view wide" id="v-pc" hidden>
+      <div class="screen">
+        <img src="/assets/wayfile-pc.jpg" alt="Wayfile transfer page in a computer's browser" width="960" height="600">
+        <button class="hot" data-i="1" style="left:61%;top:13%" aria-label="1">1</button>
+        <button class="hot" data-i="2" style="left:33%;top:46%" aria-label="2">2</button>
+        <button class="hot" data-i="3" style="left:33%;top:57%" aria-label="3">3</button>
+        <button class="hot" data-i="4" style="left:33%;top:73%" aria-label="4">4</button>
+      </div>
+      <ol class="notes">
+        <li><button data-i="1"><span class="n">01</span><span><b>Your language</b><span class="t">The page follows the browser's language.</span></span></button></li>
+        <li><button data-i="2"><span class="n">02</span><span><b>One-time PIN</b><span class="t">Six digits from the phone, valid once.</span></span></button></li>
+        <li><button data-i="3"><span class="n">03</span><span><b>Approved on the phone</b><span class="t">Every connection is confirmed there.</span></span></button></li>
+        <li><button data-i="4"><span class="n">04</span><span><b>Direct, no server</b><span class="t">Same network only; files never go to a server.</span></span></button></li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<section class="block" id="features">
   <div class="wrap">
-    <div class="head-center"><p class="kicker">What it does</p><h2>Everything your files need,<br>in one clear app</h2></div>
-    <div class="features">
-      <article class="feature"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span><h3>Browse and organize</h3><p>Every file and folder, with tags, a file basket and a recycle bin you can restore from.</p></article>
-      <article class="feature"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5"/></svg></span><h3>Find inside documents</h3><p>Search the text of PDF, Word and Excel files, right on the phone.</p></article>
-      <article class="feature"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></svg></span><h3>Free up space</h3><p>Find large files, duplicates and app caches, and see what fills your phone.</p></article>
-      <article class="feature"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="15" height="11" rx="2"/><path d="M6 19h7M9.5 15v4"/><rect x="16" y="9" width="6" height="11" rx="1.5"/></svg></span><h3>Computer over Wi-Fi</h3><p>Send files to any browser on your computer, protected by a one-time PIN.</p></article>
-      <article class="feature"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><path d="M7 7h.01M7 17h.01"/></svg></span><h3>NAS and shared folders</h3><p>Browse your NAS or a shared PC folder, back up your phone and keep folders in sync.</p></article>
-      <article class="feature"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M11 11h2M11 14h2M11 17h2"/></svg></span><h3>Archives and contact cards</h3><p>Open and extract ZIP files, and add people from .vcf contact cards to your contacts.</p></article>
+    <div class="head-center"><p class="kicker">What it does</p><h2>Everything your files need, in one clear app</h2><p style="max-width:40em;margin:0 auto;color:var(--muted)">Tap a card to see the details.</p></div>
+    <div class="more-grid">
+      <details class="more-card"><summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span><span><b>Browse and organize</b><small>Every file and folder, the way a computer shows them.</small></span></summary><div class="more-body"><ul><li>Two panes side by side for copying and moving.</li><li>Undo after copy, move, rename and delete.</li><li>Tags, a file basket for collecting files, and a recycle bin you can restore from.</li><li>Go straight to any folder by typing its address.</li></ul></div></details>
+      <details class="more-card"><summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5"/></svg></span><span><b>Find anything</b><small>Search names, and the text inside documents.</small></span></summary><div class="more-body"><ul><li>Search the text of PDF, Word and Excel files, right on the phone.</li><li>Categories for images, videos, audio, documents, archives and apps.</li><li>"Added today" lists everything that arrived today.</li></ul></div></details>
+      <details class="more-card"><summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></svg></span><span><b>Free up space</b><small>See what fills your phone and clear it.</small></span></summary><div class="more-body"><ul><li>Large files, duplicates and app caches.</li><li>The camera copy is kept as the original when duplicates look alike.</li><li>Shrink photos and videos before sharing them.</li></ul></div></details>
+      <details class="more-card"><summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="15" height="11" rx="2"/><path d="M6 19h7M9.5 15v4"/><rect x="16" y="9" width="6" height="11" rx="1.5"/></svg></span><span><b>Computer over Wi-Fi</b><small>Send files both ways from any browser.</small></span></summary><div class="more-body"><ul><li>Nothing to install on the computer.</li><li>A one-time PIN and approval on the phone.</li><li>Download a whole folder as one ZIP; live progress with speed and time left.</li></ul></div></details>
+      <details class="more-card"><summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><path d="M7 7h.01M7 17h.01"/></svg></span><span><b>NAS and shared folders</b><small>Work with your network storage.</small></span></summary><div class="more-body"><ul><li>Browse, upload and download on SMB network locations.</li><li>Back up your phone's photos, documents and messaging media.</li><li>Keep a folder in sync with one-way sync; transfers resume after a dropped connection.</li></ul></div></details>
+      <details class="more-card"><summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7l9-4 9 4v10l-9 4-9-4z"/><path d="M3 7l9 4 9-4M12 11v10"/></svg></span><span><b>Archives and contact cards</b><small>ZIP files and .vcf cards open inside the app.</small></span></summary><div class="more-body"><ul><li>Open, extract and create ZIP files, including old Windows ZIPs with Turkish names.</li><li>See the people in a .vcf file and add one or several to your contacts.</li></ul></div></details>
+    </div>
+  </div>
+</section>
+
+<section class="block soft" id="tested">
+  <div class="wrap">
+    <div class="head-center"><p class="kicker">How it is tested</p><h2>Tried on real phones before you get it</h2></div>
+    <div class="stats">
+      <div><strong>79</strong><span>steps in the written test list</span></div>
+      <div><strong>31</strong><span>issues logged, each fixed or explained</span></div>
+      <div><strong>9–17</strong><span>Android versions checked</span></div>
+      <div><strong>3</strong><span>security review rounds</span></div>
+    </div>
+    <ul class="devices" aria-label="Test devices">
+      <li>Xiaomi <span>· Android 16, HyperOS</span></li>
+      <li>General Mobile GM 24 Plus</li>
+      <li>Emulators <span>· Android 9, 10, 11, 12, 13, 17</span></li>
+      <li>Phones and tablets</li>
+    </ul>
+    <div class="cards mt">
+      <article class="card"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6M10 3v6L5 19a2 2 0 0 0 1.8 2.9h10.4A2 2 0 0 0 19 19l-5-10V3"/></svg></span><h3>Every feature, step by step</h3><p>Install, start-up time, file operations, cleanup, PC and NAS transfer, languages and permissions, each with an expected result.</p></article>
+      <article class="card"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span><h3>Attacks tried on purpose</h3><p>Wrong PINs, requests from another computer, crafted ZIP files and misleading file names are all refused.</p></article>
+      <article class="card"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span><h3>Real-world conditions</h3><p>Locked screens, dropped Wi-Fi, open networks, battery savers and very large files.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="tips">
+  <div class="wrap">
+    <div class="head-center"><p class="kicker">Usage tips</p><h2>Get more out of Wayfile</h2><p style="max-width:40em;margin:0 auto;color:var(--muted)">Small things that make a big difference.</p></div>
+    <div class="more-grid">
+      <details class="more-card"><summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span><b>Not sure what a tile does?</b><small>Every home screen tile has an ⓘ button.</small></span></summary><div class="more-body"><ul><li>Tap ⓘ to read what the tile is for and how to use it, with a shortcut to open it.</li></ul></div></details>
+      <details class="more-card"><summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="15" height="11" rx="2"/><path d="M6 19h7M9.5 15v4"/><rect x="16" y="9" width="6" height="11" rx="1.5"/></svg></span><span><b>Send files to your computer</b><small>Same Wi-Fi, a browser and a PIN.</small></span></summary><div class="more-body"><ul><li>Open PC transfer in Wayfile.</li><li>Type the address it shows into the computer's browser.</li><li>Enter the PIN and approve on the phone.</li></ul></div></details>
+      <details class="more-card"><summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3.5 6"/></svg></span><span><b>On a shared computer?</b><small>Tick "This is a shared computer" when signing in.</small></span></summary><div class="more-body"><ul><li>The session ends after 2 idle minutes and when the tab closes.</li><li>Delete what you downloaded before you leave.</li></ul></div></details>
+      <details class="more-card"><summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span><b>Changed your mind?</b><small>Undo is right there.</small></span></summary><div class="more-body"><ul><li>After copying, moving, renaming or deleting, tap Undo in the address bar.</li><li>Deleted items go to the recycle bin first, so you can restore them.</li></ul></div></details>
+      <details class="more-card"><summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span><span><b>Transfers stop in the background?</b><small>Some phones pause apps to save battery.</small></span></summary><div class="more-body"><ul><li>Settings has a battery guide with the exact steps for Xiaomi, Samsung, Huawei, OPPO, vivo and others.</li></ul></div></details>
+      <details class="more-card"><summary><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><path d="M7 7h.01M7 17h.01"/></svg></span><span><b>NAS only at home</b><small>Keep network locations to Wi-Fi.</small></span></summary><div class="more-body"><ul><li>Each network location can be set to connect only over Wi-Fi, so it never uses mobile data.</li></ul></div></details>
     </div>
   </div>
 </section>
@@ -88,7 +179,10 @@
         <li>Every computer connection is approved on the phone, with a PIN that works once.</li>
         <li>Wayfile never reads your contacts; it only hands a contact card to your phone's Contacts app when you ask.</li>
       </ul>
-      <a class="btn btn-blue" href="/wayfile/privacy/">Read the privacy policy <svg class="arrow"><use href="#arr"/></svg></a>
+      <div class="actions" style="display:flex;flex-wrap:wrap;gap:12px">
+        <a class="btn btn-blue" href="/wayfile/privacy/">Privacy policy <svg class="arrow"><use href="#arr"/></svg></a>
+        <a class="btn btn-line" href="/security/">Security</a>
+      </div>
     </div>
   </div>
 </section>
@@ -116,13 +210,13 @@
       <a class="brand" href="/"><img src="/assets/studio-logo.svg" alt="" width="34" height="34">AC App Labs</a>
       <p>An independent software studio building clear, privacy-friendly apps for phones and computers.</p>
     </div>
-    <div><h4>Apps</h4><ul><li><a href="/wayfile/" aria-current="page">Wayfile</a></li><li><a href="/#apps">Next project</a></li></ul></div>
-    <div><h4>Studio</h4><ul><li><a href="/#process">How we work</a></li><li><a href="/#studio">Our promise</a></li><li><a href="/support/">Support</a></li></ul></div>
+    <div><h4>Apps</h4><ul><li><a href="/wayfile/" aria-current="page">Wayfile</a></li><li><a href="/apps/">All apps</a></li></ul></div>
+    <div><h4>Studio</h4><ul><li><a href="/about/">About the studio</a></li><li><a href="/process/">How we work</a></li><li><a href="/security/">Security</a></li><li><a href="/support/">Support</a></li></ul></div>
     <div><h4>Legal</h4><ul><li><a href="/wayfile/privacy/">Privacy policy</a></li><li><a href="/wayfile/terms/">Terms of use</a></li><li><a href="/wayfile/licenses/">Licenses</a></li></ul></div>
   </div>
   <div class="wrap fbottom">© <span id="y">2026</span> AC App Labs. All rights reserved.</div>
 </footer>
 
-<script src="/assets/site.js?v=2"></script>
+<script src="/assets/site.js?v=3"></script>
 </body>
 </html>
