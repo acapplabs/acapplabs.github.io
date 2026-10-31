@@ -445,7 +445,7 @@ page("/security/", "Security – AC App Labs",
     <div><p class="kicker">Found a problem?</p><h2>Report a security issue</h2></div>
     <div>
       <p class="big">If you think you have found a security problem in one of our apps, please tell us privately first.</p>
-      <p>Our security contact address will be listed here soon. Until then, see <a class="more-link" href="/support/">Support</a>. The full details of what Wayfile does with data are in the <a class="more-link" href="/wayfile/privacy/">privacy policy</a>.</p>
+      <p>Write to <a class="more-link" href="mailto:info@acapplabs.com?subject=Security%20report">info@acapplabs.com</a> with "Security report" in the subject, what you found and how to reproduce it. Please give us time to fix it before sharing it publicly. The full details of what Wayfile does with data are in the <a class="more-link" href="/wayfile/privacy/">privacy policy</a>.</p>
     </div>
   </div>
 </section>
@@ -644,8 +644,10 @@ page("/support/", "Support – AC App Labs",
 
   <h2 id="contact">Contact</h2>
   <div class="notice">
-    <p>Our support email address is coming soon. It will be listed here and on the Google Play page.</p>
+    <p>Questions, feedback or a problem with one of our apps? Write to us at <a href="mailto:info@acapplabs.com">info@acapplabs.com</a>. We read every message.</p>
+    <p>For a problem, please add your phone model, Android version and the app version (Settings &gt; About in Wayfile).</p>
   </div>
+  <p><a class="btn btn-blue" href="mailto:info@acapplabs.com">Email us</a></p>
 """)
 
 import html as H, re
