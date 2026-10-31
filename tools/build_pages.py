@@ -4,7 +4,7 @@
 import pathlib, sys
 
 ROOT = pathlib.Path(sys.argv[1])
-V = "3"  # bump when site.css or site.js change, so browsers drop cached copies
+V = "5"  # bump when site.css or site.js change, so browsers drop cached copies
 
 HEAD = """<!doctype html>
 <html lang="{lang}">
@@ -54,7 +54,7 @@ HEAD = """<!doctype html>
 {hero}
   </div>
 </section>
-
+{subnav}
 <main{main_cls}>
 {body}
 </main>
@@ -90,7 +90,8 @@ def nav(current):
         <button aria-expanded="false" aria-controls="mega"{apps_cur}>Apps {CHEV}</button>
         <div class="mega" id="mega">
           <a href="/wayfile/"><img src="/assets/wayfile.png" alt=""><span><b>Wayfile</b><small>File manager for Android</small></span><span class="tag">Soon</span></a>
-          <a href="/apps/#next"><span class="slot" aria-hidden="true">+</span><span><b>Next project</b><small>Desktop app, in planning</small></span><span class="tag">Planning</span></a>
+          <a href="/apps/#game"><span class="slot" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="7" width="20" height="11" rx="5.5"/><path d="M7 10.5v4M5 12.5h4"/><circle cx="16" cy="11.5" r="1"/><circle cx="18" cy="13.8" r="1"/></svg></span><span><b>PC game</b><small>Coming soon on Steam</small></span><span class="tag">In design</span></a>
+          <a href="/apps/#android"><span class="slot" aria-hidden="true">+</span><span><b>New Android app</b><small>Design and testing</small></span><span class="tag">In design</span></a>
           <a href="/apps/"><span class="slot" aria-hidden="true">≡</span><span><b>All apps</b><small>Everything we make</small></span><span></span></a>
         </div>
       </li>""",
@@ -116,11 +117,22 @@ def footer(current):
     return "\n".join(out)
 
 
+WAYFILE_TABS = [("/wayfile/", "Overview"), ("/wayfile/privacy/", "Privacy policy"), ("/wayfile/terms/", "Terms of use"), ("/wayfile/licenses/", "Licenses"), ("/support/", "Help")]
+
+
+def subnav(current):
+    if not current.startswith("/wayfile/"):
+        return ""
+    base = current.replace("/tr/", "/")
+    links = "".join(f'<a href="{href}"{HERE if href == base else ""}>{label}</a>' for href, label in WAYFILE_TABS)
+    return f'<nav class="subnav" aria-label="Wayfile"><div class="wrap"><span class="subnav-title"><img src="/assets/wayfile.png" alt="" width="24" height="24">Wayfile</span>{links}</div></nav>\n'
+
+
 def page(path, title, desc, hero, body, lang="en", doc=True, hero_cls="page-hero"):
     out = ROOT / path.strip("/") / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
     html = HEAD.format(lang=lang, title=title, desc=desc, hero=hero.rstrip(), body=body.strip("\n"), v=V,
-                       main_cls=' class="doc"' if doc else "", columns=footer(path), nav=nav(path), hero_cls=hero_cls)
+                       main_cls=' class="doc"' if doc else "", columns=footer(path), nav=nav(path), hero_cls=hero_cls, subnav=subnav(path))
     out.write_text(html, encoding="utf-8", newline="\n")
     print("wrote", out)
 
@@ -147,6 +159,7 @@ ICONS = {
     "code": '<path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/>',
     "rocket": '<path d="M5 15c-1 1-1.5 3.5-1.5 5.5 2 0 4.5-.5 5.5-1.5M9 15l-3-3c1-4 4.5-8.5 12-9-.5 7.5-5 11-9 12z"/><circle cx="15" cy="9" r="1.5"/>',
     "heart": '<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/>',
+    "game": '<rect x="2" y="7" width="20" height="11" rx="5.5"/><path d="M7 10.5v4M5 12.5h4"/><circle cx="16" cy="11.5" r="1"/><circle cx="18" cy="13.8" r="1"/>',
     "bolt": '<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>',
 }
 
@@ -199,13 +212,14 @@ page("/", "AC App Labs – Independent software studio",
         <div><span class="tagline">Android · Coming soon</span><h3>Wayfile</h3><p>A tidy, private file manager. Browse and clean up your phone, and move files to your computer or NAS over Wi-Fi.</p><span class="btn btn-white">Explore Wayfile {ARROW}</span></div>
         <div class="shot"><img src="/assets/wayfile-home.jpg" alt="" width="540" height="1200"></div>
       </a>
-      <a class="slide landscape" href="/wayfile/#closer" style="--glow: rgba(35,80,255,.7)">
-        <div><span class="tagline">Part of Wayfile · Any browser</span><h3>Wayfile PC page</h3><p>Open a page on your computer, type the PIN from your phone and send files both ways. Nothing to install.</p><span class="btn btn-white">See how it works {ARROW}</span></div>
-        <div class="shot"><img src="/assets/wayfile-pc.jpg" alt="" width="960" height="600" style="border-width:3px;border-radius:10px;margin-bottom:12px"></div>
+      <a class="slide" href="/apps/#game" style="--glow: rgba(255,61,127,.55)">
+        <span class="ribbon">Coming soon on Steam</span>
+        <div><span class="tagline">PC game · Design and testing</span><h3>Our first game</h3><p>We are making a game for PC. It is in design and testing now, and it will come to Steam. More to show soon.</p><span class="btn btn-white">Learn more {ARROW}</span></div>
+        <div class="art-tile" aria-hidden="true"><svg viewBox="0 0 24 24">{ICONS["game"]}</svg></div>
       </a>
-      <a class="slide next" href="/apps/#next">
-        <div><span class="tagline">In planning</span><h3>Next: a desktop app</h3><p>Our next project is for Windows, macOS and Linux. We will share details when it is ready to show.</p><span class="more-link">All apps {ARROW}</span></div>
-        <div class="plus" aria-hidden="true">+</div>
+      <a class="slide" href="/apps/#android" style="--glow: rgba(35,80,255,.7)">
+        <div><span class="tagline">Android · Design and testing</span><h3>A new Android app</h3><p>Our next app for Android is being designed and tested. We will share its name and details when it is ready.</p><span class="btn btn-white">Learn more {ARROW}</span></div>
+        <div class="art-tile" aria-hidden="true"><svg viewBox="0 0 24 24">{ICONS["phone"]}</svg></div>
       </a>
     </div>
   </div>
@@ -270,7 +284,7 @@ page("/apps/", "Apps – AC App Labs",
      "Apps by AC App Labs: Wayfile, a private file manager for Android, and what comes next.",
      """    <p class="eyebrow">AC App Labs</p>
     <h1>Our <span>apps</span></h1>
-    <p class="lead">Every app gets the time it needs: designed, translated and tested here before release.</p>""",
+    <p class="lead">One app on its way to Google Play, a game for Steam and a new Android app in the works.</p>""",
      f"""
 <section class="block">
   <div class="wrap">
@@ -295,10 +309,23 @@ page("/apps/", "Apps – AC App Labs",
   </div>
 </section>
 
-<section class="block soft" id="next">
-  <div class="wrap">
-{head_center("Coming next", "A desktop app", "Our next project is for computers: Windows, macOS and Linux. It is in planning, and we will share it here when there is something real to show.")}
-    <ul class="platforms" style="margin-top:0"><li style="color:var(--ink);border-color:var(--line)">Windows</li><li style="color:var(--ink);border-color:var(--line)">macOS</li><li style="color:var(--ink);border-color:var(--line)">Linux</li></ul>
+<section class="block soft" id="game">
+  <div class="wrap intro">
+    <div><span class="status-chip">Coming soon on Steam</span><p class="kicker" style="margin-top:18px">PC game · Design and testing</p><h2>Our first game</h2></div>
+    <div>
+      <p class="big">We are making a game for PC. It is in the design and testing stage, and it will be released on Steam.</p>
+      <p>We are building it with the same care as our apps, tested on real machines before release. Its name, screenshots and Steam page will appear here when they are ready.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="android">
+  <div class="wrap intro">
+    <div><span class="status-chip">In design</span><p class="kicker" style="margin-top:18px">Android · Design and testing</p><h2>A new Android app</h2></div>
+    <div>
+      <p class="big">Our next Android app is being designed and tested.</p>
+      <p>Like Wayfile, it will be private by default, translated with care and tested on real phones before it reaches Google Play. We will share its name and details when it is ready.</p>
+    </div>
   </div>
 </section>
 """, doc=False)
@@ -327,7 +354,7 @@ page("/about/", "About the studio – AC App Labs",
         ("lang", "Clear for everyone", "Plain words and readable screens in many languages, for experts and first-time users alike."),
         ("clock", "Built to last", "Careful releases, a public changelog and fixes before new features."),
         ("shield", "Privacy by default", "No account where none is needed, and nothing leaves the device unless you send it."),
-        ("phone", "At home on every screen", "From small phones to tablets, and next, to computers."),
+        ("game", "Apps and games", "From useful tools for your phone to games for your PC."),
         ("users", "Listening to users", "Your questions and feedback shape what we build next.")])}
   </div>
 </section>
@@ -340,7 +367,7 @@ page("/about/", "About the studio – AC App Labs",
       <li><span class="dot">02</span><span class="when">October 2026</span><h3>Phone meets computer</h3><p>Transfer to a computer's browser with a one-time PIN, and to NAS and shared folders over the local network.</p></li>
       <li><span class="dot">03</span><span class="when">October 2026</span><h3>14 languages and this website</h3><p>Every screen translated, including right-to-left Arabic; acapplabs.com goes live.</p></li>
       <li><span class="dot">04</span><span class="when">Now</span><h3>Testing and security review</h3><p>Real-device tests and three rounds of security review before the Google Play release.</p></li>
-      <li><span class="dot">05</span><span class="when">Next</span><h3>Google Play, then desktop</h3><p>Wayfile's release on Google Play, followed by our first desktop app.</p></li>
+      <li><span class="dot">05</span><span class="when">Next</span><h3>Google Play, Steam and more</h3><p>Wayfile's release on Google Play, our first PC game coming to Steam, and a new Android app now in design and testing.</p></li>
     </ol>
   </div>
 </section>
@@ -579,8 +606,21 @@ page("/wayfile/", "Wayfile – File manager for Android",
       <div><strong>Free with small ads</strong><span>A one-time Pro purchase removes them.</span></div>
     </div>
     <div class="doc-links" style="justify-content:center">
-      <a class="btn btn-line" href="/wayfile/terms/">Terms of use</a>
-      <a class="btn btn-line" href="/wayfile/licenses/">Open-source licenses</a>
+    </div>
+  </div>
+</section>
+
+<section class="block soft" id="legal">
+  <div class="wrap">
+{head_center("Privacy and terms", "The rules, in plain words", "Wayfile's privacy policy and terms of use, in English and Turkish.")}
+    <div class="cards">
+      <a class="card link-card" href="/wayfile/privacy/">{ico("shield")}<h3>Privacy policy</h3><p>What Wayfile does with data: files stay on your phone, what ads collect, permissions and why.</p><span class="more-link">Read {ARROW}</span></a>
+      <a class="card link-card" href="/wayfile/terms/">{ico("file")}<h3>Terms of use</h3><p>The agreement for using Wayfile: your responsibilities, Pro, liability and how to reach us.</p><span class="more-link">Read {ARROW}</span></a>
+      <a class="card link-card" href="/wayfile/licenses/">{ico("box")}<h3>Open-source licenses</h3><p>The libraries Wayfile is built with, and their licenses.</p><span class="more-link">Read {ARROW}</span></a>
+    </div>
+    <div class="doc-links" style="justify-content:center">
+      <a class="btn btn-line" href="/wayfile/privacy/tr/">Gizlilik politikası (Türkçe)</a>
+      <a class="btn btn-line" href="/wayfile/terms/tr/">Kullanım koşulları (Türkçe)</a>
       <a class="btn btn-line" href="/support/">Support</a>
     </div>
   </div>

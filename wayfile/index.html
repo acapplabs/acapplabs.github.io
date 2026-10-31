@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=3">
+<link rel="stylesheet" href="/assets/site.css?v=5">
 </head>
 <body>
 
@@ -38,7 +38,8 @@
         <button aria-expanded="false" aria-controls="mega" aria-current="page">Apps <svg class="chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
         <div class="mega" id="mega">
           <a href="/wayfile/"><img src="/assets/wayfile.png" alt=""><span><b>Wayfile</b><small>File manager for Android</small></span><span class="tag">Soon</span></a>
-          <a href="/apps/#next"><span class="slot" aria-hidden="true">+</span><span><b>Next project</b><small>Desktop app, in planning</small></span><span class="tag">Planning</span></a>
+          <a href="/apps/#game"><span class="slot" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="7" width="20" height="11" rx="5.5"/><path d="M7 10.5v4M5 12.5h4"/><circle cx="16" cy="11.5" r="1"/><circle cx="18" cy="13.8" r="1"/></svg></span><span><b>PC game</b><small>Coming soon on Steam</small></span><span class="tag">In design</span></a>
+          <a href="/apps/#android"><span class="slot" aria-hidden="true">+</span><span><b>New Android app</b><small>Design and testing</small></span><span class="tag">In design</span></a>
           <a href="/apps/"><span class="slot" aria-hidden="true">≡</span><span><b>All apps</b><small>Everything we make</small></span><span></span></a>
         </div>
       </li>
@@ -61,6 +62,7 @@
     <span class="status">Coming soon to Google Play</span>
   </div>
 </section>
+<nav class="subnav" aria-label="Wayfile"><div class="wrap"><span class="subnav-title"><img src="/assets/wayfile.png" alt="" width="24" height="24">Wayfile</span><a href="/wayfile/" aria-current="page">Overview</a><a href="/wayfile/privacy/">Privacy policy</a><a href="/wayfile/terms/">Terms of use</a><a href="/wayfile/licenses/">Licenses</a><a href="/support/">Help</a></div></nav>
 
 <main>
 <div class="wrap showcase" id="closer">
@@ -196,8 +198,21 @@
       <div><strong>Free with small ads</strong><span>A one-time Pro purchase removes them.</span></div>
     </div>
     <div class="doc-links" style="justify-content:center">
-      <a class="btn btn-line" href="/wayfile/terms/">Terms of use</a>
-      <a class="btn btn-line" href="/wayfile/licenses/">Open-source licenses</a>
+    </div>
+  </div>
+</section>
+
+<section class="block soft" id="legal">
+  <div class="wrap">
+    <div class="head-center"><p class="kicker">Privacy and terms</p><h2>The rules, in plain words</h2><p style="max-width:40em;margin:0 auto;color:var(--muted)">Wayfile's privacy policy and terms of use, in English and Turkish.</p></div>
+    <div class="cards">
+      <a class="card link-card" href="/wayfile/privacy/"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.4-7 10-4-1.6-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>Privacy policy</h3><p>What Wayfile does with data: files stay on your phone, what ads collect, permissions and why.</p><span class="more-link">Read <svg class="arrow"><use href="#arr"/></svg></span></a>
+      <a class="card link-card" href="/wayfile/terms/"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M11 11h2M11 14h2M11 17h2"/></svg></span><h3>Terms of use</h3><p>The agreement for using Wayfile: your responsibilities, Pro, liability and how to reach us.</p><span class="more-link">Read <svg class="arrow"><use href="#arr"/></svg></span></a>
+      <a class="card link-card" href="/wayfile/licenses/"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7l9-4 9 4v10l-9 4-9-4z"/><path d="M3 7l9 4 9-4M12 11v10"/></svg></span><h3>Open-source licenses</h3><p>The libraries Wayfile is built with, and their licenses.</p><span class="more-link">Read <svg class="arrow"><use href="#arr"/></svg></span></a>
+    </div>
+    <div class="doc-links" style="justify-content:center">
+      <a class="btn btn-line" href="/wayfile/privacy/tr/">Gizlilik politikası (Türkçe)</a>
+      <a class="btn btn-line" href="/wayfile/terms/tr/">Kullanım koşulları (Türkçe)</a>
       <a class="btn btn-line" href="/support/">Support</a>
     </div>
   </div>
@@ -217,6 +232,6 @@
   <div class="wrap fbottom">© <span id="y">2026</span> AC App Labs. All rights reserved.</div>
 </footer>
 
-<script src="/assets/site.js?v=3"></script>
+<script src="/assets/site.js?v=5"></script>
 </body>
 </html>
