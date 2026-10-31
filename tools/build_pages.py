@@ -4,7 +4,7 @@
 import pathlib, sys
 
 ROOT = pathlib.Path(sys.argv[1])
-V = "5"  # bump when site.css or site.js change, so browsers drop cached copies
+V = "6"  # bump when site.css or site.js change, so browsers drop cached copies
 
 HEAD = """<!doctype html>
 <html lang="{lang}">
@@ -43,7 +43,7 @@ HEAD = """<!doctype html>
     <ul class="menu" id="menu">
 {nav}
     </ul>
-    <a class="btn btn-blue" href="/support/#contact">Get in touch</a>
+    <a class="btn btn-blue" href="/contact/">Get in touch</a>
     <button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -103,8 +103,8 @@ def nav(current):
 
 
 COLUMNS = [
-    ("Apps", [("/wayfile/", "Wayfile"), ("/apps/", "All apps")]),
-    ("Studio", [("/about/", "About the studio"), ("/process/", "How we work"), ("/security/", "Security"), ("/support/", "Support")]),
+    ("Apps", [("/wayfile/", "Wayfile"), ("/apps/#game", "PC game"), ("/apps/#android", "New Android app"), ("/apps/", "All apps")]),
+    ("Studio", [("/about/", "About the studio"), ("/process/", "How we work"), ("/security/", "Security"), ("/support/", "Support"), ("/contact/", "Contact")]),
     ("Legal", [("/wayfile/privacy/", "Privacy policy"), ("/wayfile/terms/", "Terms of use"), ("/wayfile/licenses/", "Licenses")]),
 ]
 
@@ -117,7 +117,7 @@ def footer(current):
     return "\n".join(out)
 
 
-WAYFILE_TABS = [("/wayfile/", "Overview"), ("/wayfile/privacy/", "Privacy policy"), ("/wayfile/terms/", "Terms of use"), ("/wayfile/licenses/", "Licenses"), ("/support/", "Help")]
+WAYFILE_TABS = [("/wayfile/", "Overview"), ("/wayfile/privacy/", "Privacy policy"), ("/wayfile/terms/", "Terms of use"), ("/wayfile/licenses/", "Licenses"), ("/wayfile/help/", "Help")]
 
 
 def subnav(current):
@@ -191,20 +191,31 @@ ARROW = '<svg class="arrow"><use href="#arr"/></svg>'
 
 # ---------- Home ----------
 page("/", "AC App Labs – Independent software studio",
-     "AC App Labs is an independent software studio building clear, privacy-friendly apps for phones and computers. Our first app, Wayfile, is coming soon to Google Play.",
-     f"""    <span class="pill"><b>New</b>Our first app, Wayfile, is being tested</span>
-    <h1>We build <span>clear, reliable apps</span> for phones and computers</h1>
-    <p>AC App Labs is an independent software studio. We design, build, translate and test every app ourselves, with privacy as the starting point.</p>
+     "AC App Labs is an independent software studio making Android apps, PC games and tools that connect your devices. Privacy first, tested hard, built with care.",
+     f"""    <span class="pill"><b>New</b>Wayfile is being tested · a PC game and a new app are in design</span>
+    <h1>We build <span>clear, reliable software</span> for phones and computers</h1>
+    <p>AC App Labs is an independent software studio. We design, build, translate and test every app and game ourselves, with privacy as the starting point.</p>
     <div class="actions">
       <a class="btn btn-blue" href="/apps/">Explore our apps</a>
-      <a class="btn btn-ghost" href="/about/">About the studio {ARROW}</a>
+      <a class="btn btn-ghost" href="/contact/">Get in touch {ARROW}</a>
     </div>
-    <ul class="platforms" aria-label="Platforms"><li class="now">Android</li><li>Windows</li><li>macOS</li><li>Linux</li></ul>""",
+    <ul class="platforms" aria-label="Platforms"><li class="now">Android</li><li class="now">PC · Steam</li><li>macOS</li><li>Linux</li></ul>""",
      f"""
-<section class="block" id="apps">
+<section class="block">
+  <div class="wrap intro">
+    <div><p class="kicker">Who we are</p><h2>A small studio that builds the whole thing</h2></div>
+    <div>
+      <p class="big">We design, code, translate, test and support everything we release, from the first sketch to the last update.</p>
+      <p>Nobody else decides what goes into our software, so we can keep it simple, private and well tested. We would rather ship one thing that works than five that almost do. <a class="more-link" href="/about/">More about us {ARROW}</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="block apps-band" id="apps">
+  <div class="band-words" aria-hidden="true"><span>DESIGN · BUILD · TEST · SHIP · DESIGN · BUILD · TEST · SHIP · </span><span>DESIGN · BUILD · TEST · SHIP · DESIGN · BUILD · TEST · SHIP · </span></div>
   <div class="wrap">
     <div class="head-row">
-      <div><p class="kicker">Our apps</p><h2>What we are building</h2></div>
+      <div><p class="kicker">What we are building</p><h2>Our apps and games</h2></div>
       <div class="rail-ctrl"><button data-rail="app-rail" data-dir="-1" aria-label="Previous"><svg><use href="#left"/></svg></button><button data-rail="app-rail" data-dir="1" aria-label="Next"><svg><use href="#right"/></svg></button></div>
     </div>
     <div class="rail wide" id="app-rail">
@@ -225,46 +236,60 @@ page("/", "AC App Labs – Independent software studio",
   </div>
 </section>
 
-<section class="block soft">
+<section class="block">
   <div class="wrap">
-{head_center("Our goals", "What we aim for")}
-{cards([("heart", "Software people trust", "Apps that do what they say, keep data on your device and never surprise you."),
-        ("lang", "Clear for everyone", "Plain words and readable screens, in many languages, for experts and first-time users alike."),
-        ("clock", "Built to last", "Careful releases, a public changelog and fixes that come before new features.")])}
-    <p class="center mt"><a class="more-link" href="/about/">More about the studio {ARROW}</a></p>
+{head_center("What we do", "Software for the devices you use every day")}
+{cards([("phone", "Android apps", "Useful everyday tools, like Wayfile, built natively for Android 8 and up, phones and tablets."),
+        ("game", "PC games", "Our first game is in design and testing, on its way to Steam."),
+        ("pc", "Phone meets computer", "Ways to move files between your own devices over your own Wi-Fi, without a cloud in between.")])}
   </div>
 </section>
 
-<section class="block">
+<section class="block soft">
   <div class="wrap">
-{head_center("How we work", "From idea to release")}
-{cards([("pen", "<span class='num'>01</span>Plan and design", "Screens and words first, decisions written down."),
-        ("code", "<span class='num'>02</span>Build and translate", "Native code and every text in 14 languages."),
-        ("flask", "<span class='num'>03</span>Test on real devices", "Real phones and many Android versions."),
-        ("rocket", "<span class='num'>04</span>Review and release", "A security review, then a careful release.")], "cards four")}
-    <p class="center mt"><a class="more-link" href="/process/">See our development process {ARROW}</a></p>
+{head_center("How we do it", "The road every release takes")}
+{cards([("pen", "<span class='num'>01</span>Plan and design", "A written plan, screens and words first, every decision recorded with its reason."),
+        ("code", "<span class='num'>02</span>Build and translate", "Native code, and every text in all 14 languages before release."),
+        ("flask", "<span class='num'>03</span>Test on real devices", "A written test list, real phones and many Android versions."),
+        ("rocket", "<span class='num'>04</span>Review and release", "A security review, then a careful release with a public changelog.")], "cards four")}
+    <p class="center mt"><a class="more-link" href="/process/">See the full process {ARROW}</a></p>
   </div>
 </section>
 
 <section class="block dark">
   <div class="wrap">
     <div class="head-row">
-      <div><p class="kicker">Security</p><h2>Privacy is where we start</h2></div>
-      <a class="btn btn-white" href="/security/">How we keep you safe {ARROW}</a>
+      <div><p class="kicker">The tough tests</p><h2>We try to break it before you can</h2></div>
+      <a class="btn btn-white" href="/security/">Our security approach {ARROW}</a>
     </div>
-{cards([("shield", "No account, no server", "Wayfile works without sign-up and has no server of ours to send your files to."),
-        ("lock", "Protected transfers", "A one-time PIN and an approval on the phone for every computer."),
-        ("key", "Encrypted passwords", "Saved network passwords are locked with Android's hardware-backed key store."),
-        ("eye", "Tested like an attacker", "Every release is checked by trying to break it, not only by using it.")], "cards four")}
+{cards([("eye", "Attacked on purpose", "About 30 attack attempts from the same Wi-Fi: wrong PINs, other computers, forged requests. All refused."),
+        ("box", "Booby-trapped files", "ZIP files that lie about their size or try to escape their folder, and a 20,000 × 20,000 pixel image. No crash, nothing written outside."),
+        ("file", "Tricky file names", "Names with hidden direction characters that disguise an app as a document are shown as they really are."),
+        ("wifi", "Real-world networks", "Open Wi-Fi without a password, mobile data, and a phone locked in the middle of a transfer."),
+        ("phone", "Many phones, many versions", "Two real phones, and Android 9, 10, 11, 12, 13 and 17 on emulators, from a 79-step test list."),
+        ("bolt", "Speed, measured", "Cold start timed on a real phone: about a third of a second on a recent Xiaomi.")])}
   </div>
 </section>
 
 <section class="block">
   <div class="wrap">
+{head_center("Made for the people using it", "Small ideas that make a big difference", "Things we built so our apps are easier and safer to use.")}
+{cards([("eye", "Learn as you go", "Every home screen tile in Wayfile has an ⓘ button that explains what it does and how to use it."),
+        ("clock", "Undo, not regret", "Copy, move, rename or delete, then take it back with one tap."),
+        ("lock", "PIN plus your OK", "A computer connects only with a one-time PIN and your approval on the phone."),
+        ("users", "Shared-computer mode", "On an internet café or school PC, the session ends by itself and the page clears."),
+        ("folder", "Added today", "Everything that arrived today in one list, wherever it was saved."),
+        ("lang", "Your language", "14 languages, with a full right-to-left layout for Arabic.")])}
+    <p class="center mt"><a class="more-link" href="/wayfile/">See it in Wayfile {ARROW}</a></p>
+  </div>
+</section>
+
+<section class="block soft">
+  <div class="wrap">
     <div class="stats">
       <div><strong>14</strong><span>languages, including right-to-left Arabic</span></div>
-      <div><strong>Android 8+</strong><span>supported, tested on versions 9 to 17</span></div>
-      <div><strong>79</strong><span>test steps in Wayfile's test list</span></div>
+      <div><strong>79</strong><span>steps in Wayfile's written test list</span></div>
+      <div><strong>31</strong><span>issues found in testing, each fixed or explained</span></div>
       <div><strong>3</strong><span>rounds of security review before launch</span></div>
     </div>
   </div>
@@ -273,8 +298,11 @@ page("/", "AC App Labs – Independent software studio",
 <section class="cta" id="contact">
   <div class="wrap">
     <h2>Let's talk</h2>
-    <p>Questions, ideas or feedback about our apps. We read every message.</p>
-    <a class="btn btn-white" href="/support/">Visit support {ARROW}</a>
+    <p>Questions, ideas, feedback or business. We read every message.</p>
+    <div class="actions" style="display:flex;justify-content:center;flex-wrap:wrap;gap:12px">
+      <a class="btn btn-white" href="/contact/">Contact us {ARROW}</a>
+      <a class="btn btn-ghost" href="/support/">Support</a>
+    </div>
   </div>
 </section>
 """, doc=False, hero_cls="hero home")
@@ -440,7 +468,7 @@ page("/security/", "Security – AC App Labs",
   </div>
 </section>
 
-<section class="block soft">
+<section class="block soft" id="report">
   <div class="wrap intro">
     <div><p class="kicker">Found a problem?</p><h2>Report a security issue</h2></div>
     <div>
@@ -549,7 +577,7 @@ page("/wayfile/", "Wayfile – File manager for Android",
     <div class="cards mt">
       <article class="card">{ico("flask")}<h3>Every feature, step by step</h3><p>Install, start-up time, file operations, cleanup, PC and NAS transfer, languages and permissions, each with an expected result.</p></article>
       <article class="card">{ico("eye")}<h3>Attacks tried on purpose</h3><p>Wrong PINs, requests from another computer, crafted ZIP files and misleading file names are all refused.</p></article>
-      <article class="card">{ico("bolt")}<h3>Real-world conditions</h3><p>Locked screens, dropped Wi-Fi, open networks, battery savers and very large files.</p></article>
+      <article class="card">{ico("bolt")}<h3>Real-world conditions</h3><p>Locked screens mid-transfer, open networks, battery savers and very large files.</p></article>
     </div>
   </div>
 </section>
@@ -621,33 +649,127 @@ page("/wayfile/", "Wayfile – File manager for Android",
     <div class="doc-links" style="justify-content:center">
       <a class="btn btn-line" href="/wayfile/privacy/tr/">Gizlilik politikası (Türkçe)</a>
       <a class="btn btn-line" href="/wayfile/terms/tr/">Kullanım koşulları (Türkçe)</a>
-      <a class="btn btn-line" href="/support/">Support</a>
+      <a class="btn btn-line" href="/wayfile/help/">Wayfile help</a>
     </div>
   </div>
 </section>
 """, doc=False, hero_cls="page-hero tall")
 
-# ---------- Support ----------
-page("/support/", "Support – AC App Labs",
-     "Help and contact for AC App Labs apps, including Wayfile.",
-     """    <p class="eyebrow">AC App Labs</p>
-    <h1>Support</h1>
-    <p class="lead">Answers to common questions, and how to reach us.</p>""",
-     """
-  <h2>Wayfile: common questions</h2>
-  <details class="faq" open><summary>How do I send files to my computer?</summary>
-  <p>Connect the phone and the computer to the same Wi-Fi. In Wayfile, open <em>PC transfer</em>, type the address it shows into the computer's browser and enter the PIN. Nothing needs to be installed on the computer.</p></details>
-  <details class="faq"><summary>Does Wayfile upload my files anywhere?</summary>
-  <p>No. Files only move when you send them, and only to your own computer or NAS on your local network.</p></details>
-  <details class="faq"><summary>Not sure what a feature does?</summary>
-  <p>Tap the ⓘ button on a home screen tile to see what it does and how to use it. More tips are on the <a href="/wayfile/#tips">Wayfile page</a>.</p></details>
+# ---------- Support, contact and per-app help ----------
+MAIL = "info@acapplabs.com"
 
-  <h2 id="contact">Contact</h2>
-  <div class="notice">
-    <p>Questions, feedback or a problem with one of our apps? Write to us at <a href="mailto:info@acapplabs.com">info@acapplabs.com</a>. We read every message.</p>
-    <p>For a problem, please add your phone model, Android version and the app version (Settings &gt; About in Wayfile).</p>
+
+def mailto(subject):
+    return f"mailto:{MAIL}?subject={subject.replace(' ', '%20')}"
+
+
+page("/support/", "Support – AC App Labs",
+     "Help for every AC App Labs app and game, common questions, and how to reach us.",
+     """    <p class="eyebrow">AC App Labs</p>
+    <h1>How can we <span>help?</span></h1>
+    <p class="lead">Choose your app for its own help pages, or read the common questions below.</p>""",
+     f"""
+<section class="block">
+  <div class="wrap">
+{head_center("Choose your app", "Help for each of our apps")}
+    <div class="cards">
+      <a class="card link-card" href="/wayfile/help/">{ico("folder")}<h3>Wayfile</h3><p>File manager for Android: questions, tips, privacy policy and terms.</p><span class="more-link">Wayfile help {ARROW}</span></a>
+      <a class="card link-card" href="/apps/#game">{ico("game")}<h3>PC game</h3><p>In design and testing, coming to Steam. Its help pages open at launch.</p><span class="more-link">About the game {ARROW}</span></a>
+      <a class="card link-card" href="/apps/#android">{ico("phone")}<h3>New Android app</h3><p>In design and testing. Its help pages open at launch.</p><span class="more-link">About the app {ARROW}</span></a>
+    </div>
   </div>
-  <p><a class="btn btn-blue" href="mailto:info@acapplabs.com">Email us</a></p>
+</section>
+
+<section class="block soft">
+  <div class="wrap" style="max-width:860px">
+{head_center("Common questions", "About AC App Labs")}
+    <details class="faq" open><summary>How do I contact you?</summary>
+    <p>Write to <a href="mailto:{MAIL}">{MAIL}</a>, or use the <a href="/contact/">contact page</a> to start an email with the right subject. You can write in English or Turkish.</p></details>
+    <details class="faq"><summary>How do I report a bug?</summary>
+    <p>Email us with the app's name and version, your phone or computer model, its system version, and what you did just before the problem. A screenshot helps a lot.</p></details>
+    <details class="faq"><summary>Do your apps collect my data?</summary>
+    <p>Each app has its own privacy policy that says exactly what happens. Wayfile keeps your files on your phone; its free version shows Google ads, and Google collects some device data for them. See <a href="/wayfile/privacy/">Wayfile's privacy policy</a>.</p></details>
+    <details class="faq"><summary>I found a security problem. What should I do?</summary>
+    <p>Please tell us privately first: see <a href="/security/#report">how to report a security issue</a>.</p></details>
+    <details class="faq"><summary>Which languages do you support?</summary>
+    <p>Wayfile is available in 14 languages. Our website is in English, with Turkish versions of the legal pages.</p></details>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Still need help?</h2>
+    <p>Write to us and tell us which app it is about.</p>
+    <a class="btn btn-white" href="/contact/">Contact us {ARROW}</a>
+  </div>
+</section>
+""", doc=False)
+
+CONTACT = [
+    ("users", "App support", "Something not working in one of our apps? Tell us which app, your device and what happened.", "Support request"),
+    ("heart", "Feedback and ideas", "A feature you would like, or something we could do better.", "Feedback"),
+    ("rocket", "Business and press", "Partnerships, press questions or anything else about the studio.", "Business"),
+    ("shield", "Security report", "Found a security problem? Tell us privately first, with how to reproduce it.", "Security report"),
+]
+page("/contact/", "Contact – AC App Labs",
+     "Contact AC App Labs: app support, feedback, business, press and security reports.",
+     f"""    <p class="eyebrow">Contact</p>
+    <h1>Get in <span>touch</span></h1>
+    <p class="lead">Questions, ideas, feedback or business: write to us. We read every message.</p>
+    <div class="actions"><a class="btn btn-white" href="mailto:{MAIL}">{MAIL}</a></div>""",
+     f"""
+<section class="block">
+  <div class="wrap">
+{head_center("What is it about?", "Pick a topic to start your email", "Each one opens your email app with the right subject, so your message reaches the right place faster.")}
+    <div class="cards two">
+{chr(10).join(f'      <a class="card link-card" href="{mailto(s)}">{ico(i)}<h3>{h}</h3><p>{d}</p><span class="more-link">Write to us {ARROW}</span></a>' for i, h, d, s in CONTACT)}
+    </div>
+  </div>
+</section>
+
+<section class="block soft">
+  <div class="wrap intro">
+    <div><p class="kicker">Good to know</p><h2>Before you write</h2></div>
+    <div>
+      <ul class="ticks">
+        <li>You can write in English or Turkish.</li>
+        <li>We aim to reply within a few working days.</li>
+        <li>Never send us passwords, card numbers or ID documents. We will never ask for them.</li>
+        <li>Many answers are already in <a class="more-link" href="/support/">Support</a> and each app's help page.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+""", doc=False)
+
+page("/wayfile/help/", "Wayfile – Help",
+     "Help for Wayfile, the file manager for Android: common questions, tips and how to reach us.",
+     """    <p class="eyebrow">Wayfile</p>
+    <h1>Help</h1>
+    <p class="lead">Answers to common questions about Wayfile.</p>""",
+     f"""
+  <h2>Common questions</h2>
+  <details class="faq" open><summary>How do I send files to my computer?</summary>
+  <p>Connect the phone and the computer to the same Wi-Fi. In Wayfile, open <em>PC transfer</em>, type the address it shows into the computer's browser, enter the PIN and approve the connection on the phone. Nothing needs to be installed on the computer.</p></details>
+  <details class="faq"><summary>The PC page does not open.</summary>
+  <p>Check that both devices are on the same Wi-Fi; connections over mobile data are refused on purpose. Type the address exactly as Wayfile shows it, including the number after the colon. Some guest and public networks block devices from seeing each other; try your home network.</p></details>
+  <details class="faq"><summary>Where do files from my computer go?</summary>
+  <p>To <code>Download/Wayfile/Computer</code> by default. The PC transfer screen shows the folder and lets you pick another one.</p></details>
+  <details class="faq"><summary>Transfers stop when the screen is off.</summary>
+  <p>Some phones pause apps to save battery. Wayfile's settings have a battery guide with the steps for Xiaomi, Samsung, Huawei, OPPO, vivo and others.</p></details>
+  <details class="faq"><summary>How do I get a deleted file back?</summary>
+  <p>Deleted items go to the recycle bin first. Open the recycle bin from the side menu and restore the item. Right after deleting, you can also tap Undo.</p></details>
+  <details class="faq"><summary>Does Wayfile upload my files anywhere?</summary>
+  <p>No. Files only leave your phone when you send them: to your own computer, your network storage or an app you choose. See the <a href="/wayfile/privacy/">privacy policy</a>.</p></details>
+  <details class="faq"><summary>How do I remove the ads?</summary>
+  <p>A one-time Pro purchase inside the app removes them.</p></details>
+  <details class="faq"><summary>Not sure what a feature does?</summary>
+  <p>Tap the ⓘ button on a home screen tile. More tips are on the <a href="/wayfile/#tips">Wayfile page</a>.</p></details>
+
+  <h2>Still need help?</h2>
+  <div class="notice">
+    <p>Write to <a href="{mailto("Wayfile support")}">{MAIL}</a> with your phone model, Android version and Wayfile's version (Settings &gt; About).</p>
+  </div>
 """)
 
 import html as H, re

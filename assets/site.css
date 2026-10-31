@@ -428,6 +428,18 @@ section.dark p { color: var(--on-dark-muted); }
 .intro p { color: var(--muted); }
 .intro .big { font-size: 22px; line-height: 1.5; color: var(--ink); font-weight: 600; }
 
+/* Home carousel band: soft colour, dots and slowly sliding outline words behind the cards */
+.apps-band { position: relative; overflow: hidden; background: linear-gradient(180deg, #f3f5fb 0%, #e9edff 100%); }
+.apps-band::before { content: ""; position: absolute; inset: 0; background:
+  radial-gradient(420px 300px at 8% 85%, rgba(122,60,240,.18), transparent 70%),
+  radial-gradient(460px 320px at 92% 15%, rgba(35,80,255,.18), transparent 70%),
+  radial-gradient(360px 240px at 60% 100%, rgba(255,61,127,.10), transparent 70%); }
+.apps-band::after { content: ""; position: absolute; inset: 0; background-image: radial-gradient(rgba(35,80,255,.22) 1.2px, transparent 1.6px); background-size: 26px 26px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 20%, #000 80%, transparent); mask-image: linear-gradient(90deg, transparent, #000 20%, #000 80%, transparent); opacity: .5; }
+.apps-band .wrap { position: relative; z-index: 1; }
+.band-words { position: absolute; left: 0; top: 50%; transform: translateY(-38%); display: flex; white-space: nowrap; pointer-events: none; z-index: 0; animation: words 60s linear infinite; }
+.band-words span { font-size: clamp(90px, 13vw, 190px); font-weight: 800; letter-spacing: -.03em; line-height: 1; color: transparent; -webkit-text-stroke: 1.5px rgba(35,80,255,.13); padding-right: .3em; }
+@keyframes words { to { transform: translate(-50%, -38%); } }
+
 /* Coming-soon ribbon, icon tiles and status chips */
 .ribbon { position: absolute; top: 20px; right: 20px; border-radius: var(--r-sharp); background: var(--amber); color: var(--navy-950); font-size: 12px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; padding: 7px 12px; box-shadow: 0 8px 20px -10px rgba(0,0,0,.6); z-index: 2; }
 .art-tile { align-self: center; justify-self: center; width: 130px; height: 130px; border-radius: 30px; display: grid; place-items: center; background: linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,255,255,.04)); border: 1px solid var(--navy-line); box-shadow: inset 0 1px 0 rgba(255,255,255,.2); }
