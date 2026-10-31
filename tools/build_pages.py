@@ -4,7 +4,7 @@
 import pathlib, sys
 
 ROOT = pathlib.Path(sys.argv[1])
-V = "6"  # bump when site.css or site.js change, so browsers drop cached copies
+V = "8"  # bump when site.css or site.js change, so browsers drop cached copies
 
 HEAD = """<!doctype html>
 <html lang="{lang}">
@@ -47,14 +47,14 @@ HEAD = """<!doctype html>
     <button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
   </div>
 </header>
-
+{subnav}
 <section class="{hero_cls}">
   <div class="galaxy" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i class="swirl"></i><b></b></div>
   <div class="wrap">
 {hero}
   </div>
 </section>
-{subnav}
+
 <main{main_cls}>
 {body}
 </main>
@@ -480,7 +480,7 @@ page("/security/", "Security – AC App Labs",
 """, doc=False)
 
 # ---------- Wayfile ----------
-SHOWCASE = """<div class="wrap showcase" id="closer">
+SHOWCASE = """<div class="showcase-band"><div class="wrap showcase" id="closer">
   <div class="stage">
     <div class="stage-head">
       <div class="stage-title"><img src="/assets/wayfile.png" alt="" width="44" height="44"><div><b>A closer look at Wayfile</b><small>Tap a number to see what it does</small></div></div>
@@ -528,7 +528,7 @@ SHOWCASE = """<div class="wrap showcase" id="closer">
       </ol>
     </div>
   </div>
-</div>"""
+</div></div>"""
 
 page("/wayfile/", "Wayfile – File manager for Android",
      "Wayfile is a file manager for Android: browse and organize files, free up space, and send files to your computer or NAS over Wi-Fi. Your files stay on your device.",

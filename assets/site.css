@@ -428,6 +428,19 @@ section.dark p { color: var(--on-dark-muted); }
 .intro p { color: var(--muted); }
 .intro .big { font-size: 22px; line-height: 1.5; color: var(--ink); font-weight: 600; }
 
+/* Wayfile showcase: its own soft band, and a glow behind the screens so they stand out from the card */
+.showcase-band { display: flow-root; position: relative; background: linear-gradient(180deg, #e9edff 0%, #f6f7fc 70%, #ffffff 100%); padding-bottom: 90px; }
+.showcase-band::before { content: ""; position: absolute; inset: 0; background-image: radial-gradient(rgba(35,80,255,.2) 1.2px, transparent 1.6px); background-size: 26px 26px; -webkit-mask-image: linear-gradient(180deg, #000, transparent 85%); mask-image: linear-gradient(180deg, #000, transparent 85%); opacity: .55; pointer-events: none; }
+.showcase-band .showcase { z-index: 2; }
+.stage { overflow: hidden; }
+.stage { background: linear-gradient(180deg, #ffffff 0%, #fafbff 100%); box-shadow: 0 50px 90px -40px rgba(5,10,46,.45), 0 0 0 1px rgba(35,80,255,.06); }
+.screen { isolation: isolate; }
+.screen::before { content: ""; position: absolute; z-index: -1; inset: -60px -110px; border-radius: 50%; background: radial-gradient(closest-side, rgba(122,60,240,.75), rgba(35,80,255,.45) 45%, rgba(255,61,127,.15) 72%, transparent 100%); filter: blur(14px); animation: breathe 6s ease-in-out infinite alternate; }
+.wide .screen::before { inset: -50px -60px; }
+@keyframes breathe { from { transform: scale(.94); opacity: .8; } to { transform: scale(1.05); opacity: 1; } }
+.phone .screen img { box-shadow: 0 30px 50px -24px rgba(5,10,46,.6); }
+.wide .screen img { box-shadow: 0 24px 44px -24px rgba(5,10,46,.5); }
+
 /* Home carousel band: soft colour, dots and slowly sliding outline words behind the cards */
 .apps-band { position: relative; overflow: hidden; background: linear-gradient(180deg, #f3f5fb 0%, #e9edff 100%); }
 .apps-band::before { content: ""; position: absolute; inset: 0; background:
